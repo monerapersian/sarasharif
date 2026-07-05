@@ -27,3 +27,4 @@ Homestead.yaml
 Thumbs.db
 # Local deployment script
 deploy.bat
+/public/index.php
