@@ -192,7 +192,7 @@
                         <!-- Button -->
                         <div>
 
-                            <a href="#" class="inline-flex items-center gap-3 bg-[#104e2b] hover:bg-[#426752] text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20" style="font-family: 'sharifBold';">
+                            <a href="/calculator" class="inline-flex items-center gap-3 bg-[#104e2b] hover:bg-[#426752] text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20" style="font-family: 'sharifBold';">
 
                                 <i data-lucide="arrow-left"></i>
 

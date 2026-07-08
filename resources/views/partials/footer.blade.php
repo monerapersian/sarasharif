@@ -1,5 +1,5 @@
 <!-- Footer -->
-    <footer class="mt-24 bg-[#0f4c3a] text-white relative overflow-hidden">
+    <footer class="bg-[#0f4c3a] text-white relative overflow-hidden">
 
         <!-- Decorative Shapes -->
         <div class="absolute top-0 left-0 w-72 h-72 bg-[#a67c52]/10 rounded-full blur-3xl"></div>
@@ -33,35 +33,35 @@
                     <ul class="space-y-4">
 
                         <li>
-                            <a href="#"
+                            <a href="/"
                                class="text-[#ebc9a2] hover:text-white transition">
                                 صفحه اصلی
                             </a>
                         </li>
 
                         <li>
-                            <a href="#"
+                            <a href="/blogs"
                                class="text-[#ebc9a2] hover:text-white transition">
                                 مقالات
                             </a>
                         </li>
 
                         <li>
-                            <a href="#"
+                            <a href="/about"
                                class="text-[#ebc9a2] hover:text-white transition">
                                 درباره سارا شریف
                             </a>
                         </li>
 
                         <li>
-                            <a href="#"
+                            <a href="/contact"
                                class="text-[#ebc9a2] hover:text-white transition">
                                 تماس با ما
                             </a>
                         </li>
 
                         <li>
-                            <a href="#"
+                            <a href="/calculator"
                                class="text-[#ebc9a2] hover:text-white transition">
                                 محاسبه‌گر حقوق
                             </a>

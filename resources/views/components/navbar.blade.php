@@ -26,7 +26,7 @@
                                 </li>
                             @endforeach
                                 <li>
-                                    <a href="#"
+                                    <a href="/calculator"
                                         class="flex items-center gap-2 bg-[#0f4c3a] text-white px-4 py-2 rounded-xl hover:bg-[#a67c52] transition">
                                         <i data-lucide="calculator"></i>
                                         <span>محاسبه‌گر حقوق</span>
@@ -75,7 +75,7 @@
 
         <div class="grid grid-cols-5 h-18">
 
-            <a href="#" class="flex flex-col justify-center items-center text-[#0f4c3a] hover:text-[#a67c52]">
+            <a href="/" class="flex flex-col justify-center items-center text-[#0f4c3a] hover:text-[#a67c52]">
 
                 <i data-lucide="house" class="w-6 h-6"></i>
 
@@ -83,7 +83,7 @@
 
             </a>
 
-            <a href="#" class="flex flex-col justify-center items-center text-[#0f4c3a] hover:text-[#a67c52]">
+            <a href="/blogs" class="flex flex-col justify-center items-center text-[#0f4c3a] hover:text-[#a67c52]">
 
                 <i data-lucide="book-open"></i>
 
@@ -91,7 +91,7 @@
 
             </a>
 
-            <a href="#" class="flex flex-col justify-center items-center text-[#a67c52]">
+            <a href="/calculator" class="flex flex-col justify-center items-center text-[#a67c52]">
 
                 <div class="w-12 h-12 rounded-full bg-[#0f4c3a] text-white flex items-center justify-center -mt-8 shadow-xl">
 
@@ -105,7 +105,7 @@
 
             </a>
 
-            <a href="#" class="flex flex-col justify-center items-center text-[#0f4c3a] hover:text-[#a67c52]">
+            <a href="/about" class="flex flex-col justify-center items-center text-[#0f4c3a] hover:text-[#a67c52]">
 
                 <i data-lucide="user-round"></i>
 
@@ -113,7 +113,7 @@
 
             </a>
 
-            <a href="#" class="flex flex-col justify-center items-center text-[#0f4c3a] hover:text-[#a67c52]">
+            <a href="/contact" class="flex flex-col justify-center items-center text-[#0f4c3a] hover:text-[#a67c52]">
 
                 <i data-lucide="phone"></i>
 

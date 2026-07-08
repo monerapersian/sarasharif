@@ -40,7 +40,7 @@
 
 		                    <div class="mt-10">
 
-		                        <a href="#"
+		                        <a href="/calculator"
 		                           class="inline-flex items-center gap-3 bg-[#a67c52] text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-[#8b6743] hover:-translate-y-1">
 
 		                            ورود به محاسبه‌گر
