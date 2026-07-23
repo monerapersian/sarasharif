@@ -28,11 +28,20 @@
 
                             <!-- Photo Area -->
                             <div class="w-80 h-80 lg:w-[450px] lg:h-[450px] rounded-full bg-white shadow-2xl border-8 border-white overflow-hidden flex items-center justify-center">
-                                <img src="{{ asset('storage/' . $sara->profile_image) }}" alt="سارا شریف" class="w-full h-full object-cover">
-                                <!-- Replace With Image -->
-                                <!-- <span class="text-[#a67c52] text-lg">
-                                    تصویر سارا شریف
-                                </span> -->
+                                @if($sara && $sara->profile_image)
+
+                                    <img
+                                        src="{{ asset('storage/' . $sara->profile_image) }}"
+                                        alt="سارا شریف"
+                                        class="w-full h-full object-cover">
+
+                                @else
+
+                                    <span class="text-[#a67c52] text-lg">
+                                        تصویر سارا شریف
+                                    </span>
+
+                                @endif
 
                             </div>
 
