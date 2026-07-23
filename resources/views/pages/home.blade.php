@@ -28,11 +28,11 @@
 
                             <!-- Photo Area -->
                             <div class="w-80 h-80 lg:w-[450px] lg:h-[450px] rounded-full bg-white shadow-2xl border-8 border-white overflow-hidden flex items-center justify-center">
-                                <!-- <img src="{{ asset('img/hero.jpg') }}" alt="سارا شریف" class="w-full h-full object-cover"> -->
+                                <img src="{{ asset('storage/' . $sara->profile_image) }}" alt="سارا شریف" class="w-full h-full object-cover">
                                 <!-- Replace With Image -->
-                                <span class="text-[#a67c52] text-lg">
+                                <!-- <span class="text-[#a67c52] text-lg">
                                     تصویر سارا شریف
-                                </span>
+                                </span> -->
 
                             </div>
 
@@ -61,11 +61,11 @@
 
                         <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-4">
 
-                            <a href="#" class="bg-[#0f4c3a] text-white px-8 py-4 rounded-2xl hover:bg-[#a67c52] transition-all duration-300">
+                            <a href="{{ route('contact') }}" class="bg-[#0f4c3a] text-white px-8 py-4 rounded-2xl hover:bg-[#a67c52] transition-all duration-300">
                                 مشاوره رایگان
                             </a>
 
-                            <a href="#" class="border-2 border-[#0f4c3a] text-[#0f4c3a] px-8 py-4 rounded-2xl hover:bg-[#0f4c3a] hover:text-white transition-all duration-300">
+                            <a href="{{ route('blog') }}" class="border-2 border-[#0f4c3a] text-[#0f4c3a] px-8 py-4 rounded-2xl hover:bg-[#0f4c3a] hover:text-white transition-all duration-300">
                                 مشاهده مقالات
                             </a>
 
@@ -231,7 +231,7 @@
 
                     </div>
 
-                    <a href="#"
+                    <a href="{{ route('blog') }}"
                        class="px-6 py-3 rounded-xl border-2 border-[#0f4c3a] text-[#0f4c3a] hover:bg-[#0f4c3a] hover:text-white transition">
 
                         مقاله‌های بیشتر
@@ -242,152 +242,90 @@
 
                 <!-- Articles -->
                 <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+                    @foreach($featuredPosts as $post)
 
-                    <!-- Card -->
-                    <article class="relative group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-[#ebc9a270]">
+                        <!-- Card -->
+                        <article class="relative group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-[#ebc9a270]">
 
-                        <div class="overflow-hidden">
 
-                            <img src="img/maliat.jpg"
-                                 alt=""
-                                 class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                            <!-- Image -->
 
-                        </div>
+                            <div class="overflow-hidden">
 
-                        <div class="p-6">
+                                @if($post->featured_image)
 
-                            <h3 class="text-xl font-bold text-[#0f4c3a] leading-8 mb-4">
-                                راهنمای کامل ارسال اظهارنامه مالیاتی در سال جدید
-                            </h3>
+                                    <img 
+                                        src="{{ asset('storage/' . $post->featured_image) }}"
+                                        alt="{{ $post->title }}"
+                                        class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
 
-                            <p class="text-gray-600 leading-7 text-sm mb-6">
-                                آشنایی با مراحل ثبت و ارسال اظهارنامه مالیاتی،
-                                مدارک مورد نیاز و نکات مهمی که باید قبل از ارسال
-                                بدانید...
-                            </p>
+                                @else
 
-                            <a href="#"
-                               class="block w-full text-center bg-[#0f4c3a] text-white py-3 rounded-xl hover:bg-[#a67c52] transition">
+                                    <div class="w-full h-56 bg-[#FAF8F4] flex items-center justify-center text-[#a67c52]">
 
-                                مطالعه مقاله
+                                        بدون تصویر
 
-                            </a>
+                                    </div>
 
-                        </div>
+                                @endif
 
-                        <span class="absolute top-4 right-4 bg-[#a67c52] text-white px-3 py-1 rounded-full text-xs">
-                            مالیات
-                        </span>
+                            </div>
 
-                    </article>
 
-                    <!-- Card -->
-                    <article class="relative group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-[#ebc9a270]">
 
-                        <div class="overflow-hidden">
+                            <!-- Content -->
 
-                            <img src="img/tamin-blog.webp"
-                                 alt=""
-                                 class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                            <div class="p-6">
 
-                        </div>
 
-                        <div class="p-6">
+                                <h3 class="text-xl font-bold text-[#0f4c3a] leading-8 mb-4">
 
-                            <h3 class="text-xl font-bold text-[#0f4c3a] leading-8 mb-4">
-                                قوانین جدید بیمه تامین اجتماعی برای کارفرمایان
-                            </h3>
+                                    {{ $post->title }}
 
-                            <p class="text-gray-600 leading-7 text-sm mb-6">
-                                بررسی آخرین تغییرات بیمه تامین اجتماعی و
-                                تاثیر آن بر شرکت‌ها، کارفرمایان و کارکنان...
-                            </p>
+                                </h3>
 
-                            <a href="#"
-                               class="block w-full text-center bg-[#0f4c3a] text-white py-3 rounded-xl hover:bg-[#a67c52] transition">
 
-                                مطالعه مقاله
 
-                            </a>
+                                <p class="text-gray-600 leading-7 text-sm mb-6">
 
-                        </div>
-                        <span class="absolute top-4 right-4 bg-[#a67c52] text-white px-3 py-1 rounded-full text-xs">
-                            تامین اجتماعی
-                        </span>
+                                    {{ Str::limit($post->excerpt, 120) }}
 
-                    </article>
+                                </p>
 
-                    <!-- Card -->
-                    <article class="relative group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-[#ebc9a270]">
 
-                        <div class="overflow-hidden">
 
-                            <img src="img/cal.jpg"
-                                 alt=""
-                                 class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                                <a href="{{ route('blog.show', $post->slug) }}"
+                                   class="block w-full text-center bg-[#0f4c3a] text-white py-3 rounded-xl hover:bg-[#a67c52] transition">
 
-                        </div>
+                                    مطالعه مقاله
 
-                        <div class="p-6">
+                                </a>
 
-                            <h3 class="text-xl font-bold text-[#0f4c3a] leading-8 mb-4">
-                                نکات کلیدی حسابداری برای کسب‌وکارهای نوپا
-                            </h3>
 
-                            <p class="text-gray-600 leading-7 text-sm mb-6">
-                                مهم‌ترین اصول حسابداری و مدیریت مالی که
-                                استارتاپ‌ها و کسب‌وکارهای تازه‌تأسیس باید بدانند...
-                            </p>
+                            </div>
 
-                            <a href="#"
-                               class="block w-full text-center bg-[#0f4c3a] text-white py-3 rounded-xl hover:bg-[#a67c52] transition">
 
-                                مطالعه مقاله
 
-                            </a>
 
-                        </div>
-                        <span class="absolute top-4 right-4 bg-[#a67c52] text-white px-3 py-1 rounded-full text-xs">
-                            حسابداری
-                        </span>
+                            <!-- Category -->
 
-                    </article>
+                            @if($post->categories->count())
 
-                    <!-- Card -->
-                    <article class="relative group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 border border-[#ebc9a270]">
+                                <span class="absolute top-4 right-4 bg-[#a67c52] text-white px-3 py-1 rounded-full text-xs">
 
-                        <div class="overflow-hidden">
+                                    {{ $post->categories->first()->name }}
 
-                            <img src="img/hidden-maliat.jpg"
-                                 alt=""
-                                 class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                                </span>
 
-                        </div>
+                            @endif
 
-                        <div class="p-6">
 
-                            <h3 class="text-xl font-bold text-[#0f4c3a] leading-8 mb-4">
-                                نحوه محاسبه حقوق و دستمزد کارکنان
-                            </h3>
 
-                            <p class="text-gray-600 leading-7 text-sm mb-6">
-                                آموزش محاسبه حقوق، اضافه‌کاری، مالیات،
-                                بیمه و سایر مزایای کارکنان به زبان ساده...
-                            </p>
+                        </article>
 
-                            <a href="#"
-                               class="block w-full text-center bg-[#0f4c3a] text-white py-3 rounded-xl hover:bg-[#a67c52] transition">
 
-                                مطالعه مقاله
+                    @endforeach
 
-                            </a>
-
-                        </div>
-                        <span class="absolute top-4 right-4 bg-[#a67c52] text-white px-3 py-1 rounded-full text-xs">
-                            مالیات
-                        </span>
-
-                    </article>
 
                 </div>
 

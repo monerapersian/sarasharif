@@ -2,15 +2,142 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/blogs', 'pages.blog.index')->name('blog.index');
-Route::view('/blog/single', 'pages.blog.single')->name('blog.single');
-// Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
-Route::view('/calculator', 'pages.calculator.index')->name('calculator.index');
-Route::view('/about', 'pages.about.index')->name('about.index');
-Route::view('/contact', 'pages.contact.index')->name('contact.index');
-Route::view('/faq', 'pages.faq.index')->name('faq.index');
-Route::view('/404-preview', 'pages.404.index')->name('404.preview');
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\SaraInformationController;
+use App\Models\Post;
+use App\Models\SaraInformation;
+
+
+/*
+|--------------------------------------------------------------------------
+| Public Website
+|--------------------------------------------------------------------------
+*/
+
 
 Route::get('/', function () {
-    return view('pages.home');
-});
+
+    $sara = SaraInformation::first();
+
+
+    $featuredPosts = Post::with('categories')
+        ->where('is_featured', true)
+        ->where('status', 'published')
+        ->latest()
+        ->take(4)
+        ->get();
+
+
+    return view('pages.home', compact(
+        'sara',
+        'featuredPosts'
+    ));
+
+})->name('home');
+
+
+Route::get('/about', function () {
+    return view('pages.about.index');
+})->name('about');
+
+
+Route::get('/blog', function () {
+    return view('pages.blog.index');
+})->name('blog');
+
+
+Route::get('/blog/{slug}', function ($slug) {
+    return view('pages.blog.single');
+})->name('blog.show');
+
+
+Route::get('/contact', function () {
+    return view('pages.contact.index');
+})->name('contact');
+
+
+Route::get('/faq', function () {
+    return view('pages.faq.index');
+})->name('faq');
+
+
+Route::get('/calculator', function () {
+    return view('pages.calculator.index');
+})->name('calculator');
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin Panel
+|--------------------------------------------------------------------------
+*/
+
+
+Route::middleware('auth')
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Dashboard
+        |--------------------------------------------------------------------------
+        */
+
+        Route::get('/dashboard', function () {
+
+            return view('admin.dashboard');
+
+        })->name('dashboard');
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Articles Management
+        |--------------------------------------------------------------------------
+        */
+
+        Route::resource('posts', PostController::class);
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | FAQ Management
+        |--------------------------------------------------------------------------
+        */
+
+        Route::resource('faqs', FaqController::class);
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Sara Information Management
+        |--------------------------------------------------------------------------
+        */
+
+        Route::get('/sara-information', [SaraInformationController::class, 'edit'])
+            ->name('sara-information.edit');
+
+
+        Route::put('/sara-information', [SaraInformationController::class, 'update'])
+            ->name('sara-information.update');
+
+
+    });
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Authentication
+|--------------------------------------------------------------------------
+*/
+
+
+require __DIR__ . '/auth.php';
