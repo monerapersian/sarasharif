@@ -1,4 +1,6 @@
-	<!-- Pagination -->
+<!-- Pagination -->
+	@if ($posts->hasPages())
+
 		<section class="pb-24 bg-[#FAF8F4]">
 
 		    <div class="container mx-auto px-6">
@@ -7,61 +9,138 @@
 
 		            <nav class="flex flex-wrap justify-center items-center gap-3">
 
-		                <!-- Previous -->
-		                <a href="#"
-		                    class="flex items-center gap-2 px-5 py-3 rounded-xl border border-[#ebc9a270] bg-white text-[#0f4c3a] hover:bg-[#0f4c3a] hover:text-white hover:border-[#0f4c3a] transition-all duration-300">
+		                {{-- Previous --}}
+		                @if ($posts->onFirstPage())
 
-		                    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+		                    <span
+		                        class="flex items-center gap-2 px-5 py-3 rounded-xl border border-[#ebc9a270] bg-gray-100 text-gray-400 cursor-not-allowed">
 
-		                    قبلی
+		                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
 
-		                </a>
+		                        قبلی
 
-		                <!-- Active -->
-		                <a href="#"
-		                    class="w-12 h-12 flex items-center justify-center rounded-xl bg-[#0f4c3a] text-white font-bold shadow-lg shadow-[#0f4c3a]/20">
+		                    </span>
 
-		                    1
+		                @else
 
-		                </a>
+		                    <a href="{{ $posts->previousPageUrl() }}"
+		                        class="flex items-center gap-2 px-5 py-3 rounded-xl border border-[#ebc9a270] bg-white text-[#0f4c3a] hover:bg-[#0f4c3a] hover:text-white hover:border-[#0f4c3a] transition-all duration-300">
 
-		                <!-- Pages -->
-		                <a href="#"
-		                    class="w-12 h-12 flex items-center justify-center rounded-xl bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white hover:border-[#a67c52] transition-all duration-300">
+		                        <i data-lucide="chevron-right" class="w-5 h-5"></i>
 
-		                    2
+		                        قبلی
 
-		                </a>
+		                    </a>
 
-		                <a href="#"
-		                    class="w-12 h-12 flex items-center justify-center rounded-xl bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white hover:border-[#a67c52] transition-all duration-300">
+		                @endif
 
-		                    3
 
-		                </a>
+		                @php
+		                    $current = $posts->currentPage();
+		                    $last = $posts->lastPage();
+		                @endphp
 
-		                <span class="px-2 text-gray-400 font-bold">
 
-		                    ...
+		                {{-- First Page --}}
+		                @if($current > 3)
 
-		                </span>
+		                    <a href="{{ $posts->url(1) }}"
+		                        class="w-12 h-12 flex items-center justify-center rounded-xl bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white transition">
 
-		                <a href="#"
-		                    class="w-12 h-12 flex items-center justify-center rounded-xl bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white hover:border-[#a67c52] transition-all duration-300">
+		                        1
 
-		                    8
+		                    </a>
 
-		                </a>
+		                @endif
 
-		                <!-- Next -->
-		                <a href="#"
-		                    class="flex items-center gap-2 px-5 py-3 rounded-xl border border-[#ebc9a270] bg-white text-[#0f4c3a] hover:bg-[#0f4c3a] hover:text-white hover:border-[#0f4c3a] transition-all duration-300">
 
-		                    بعدی
+		                {{-- Left Dots --}}
+		                @if($current > 4)
 
-		                    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+		                    <span class="px-2 text-gray-400 font-bold">
 
-		                </a>
+		                        ...
+
+		                    </span>
+
+		                @endif
+
+
+		                {{-- Around Current --}}
+		                @for($i = max(1, $current-1); $i <= min($last, $current+1); $i++)
+
+		                    @if($i == $current)
+
+		                        <span
+		                            class="w-12 h-12 flex items-center justify-center rounded-xl bg-[#0f4c3a] text-white font-bold shadow-lg shadow-[#0f4c3a]/20">
+
+		                            {{ $i }}
+
+		                        </span>
+
+		                    @else
+
+		                        <a href="{{ $posts->url($i) }}"
+		                            class="w-12 h-12 flex items-center justify-center rounded-xl bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white hover:border-[#a67c52] transition-all duration-300">
+
+		                            {{ $i }}
+
+		                        </a>
+
+		                    @endif
+
+		                @endfor
+
+
+		                {{-- Right Dots --}}
+		                @if($current < $last-3)
+
+		                    <span class="px-2 text-gray-400 font-bold">
+
+		                        ...
+
+		                    </span>
+
+		                @endif
+
+
+		                {{-- Last Page --}}
+		                @if($current < $last-2)
+
+		                    <a href="{{ $posts->url($last) }}"
+		                        class="w-12 h-12 flex items-center justify-center rounded-xl bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white transition">
+
+		                        {{ $last }}
+
+		                    </a>
+
+		                @endif
+
+
+		                {{-- Next --}}
+		                @if($posts->hasMorePages())
+
+		                    <a href="{{ $posts->nextPageUrl() }}"
+		                        class="flex items-center gap-2 px-5 py-3 rounded-xl border border-[#ebc9a270] bg-white text-[#0f4c3a] hover:bg-[#0f4c3a] hover:text-white hover:border-[#0f4c3a] transition-all duration-300">
+
+		                        بعدی
+
+		                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+
+		                    </a>
+
+		                @else
+
+		                    <span
+		                        class="flex items-center gap-2 px-5 py-3 rounded-xl border border-[#ebc9a270] bg-gray-100 text-gray-400 cursor-not-allowed">
+
+		                        بعدی
+
+		                        <i data-lucide="chevron-left" class="w-5 h-5"></i>
+
+		                    </span>
+
+		                @endif
 
 		            </nav>
 
@@ -70,4 +149,6 @@
 		    </div>
 
 		</section>
-	<!-- ./Pagination -->
+
+	@endif
+<!-- ./Pagination -->

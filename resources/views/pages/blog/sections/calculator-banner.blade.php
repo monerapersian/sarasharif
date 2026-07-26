@@ -23,7 +23,7 @@
 
 		                    </span>
 
-		                    <h2 class="text-4xl lg:text-5xl font-black text-white leading-tight">
+		                    <h2 class="text-3xl lg:text-4xl font-black text-white leading-tight">
 
 		                        محاسبه آنلاین حقوق،
 		                        بیمه، مالیات و مزایا
@@ -40,8 +40,8 @@
 
 		                    <div class="mt-10">
 
-		                        <a href="/calculator"
-		                           class="inline-flex items-center gap-3 bg-[#a67c52] text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-[#8b6743] hover:-translate-y-1">
+		                        <a href="{{ route('calculator') }}"
+		                           class="inline-flex items-center gap-3 bg-[#a67c52] text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 hover:bg-[#8b6743] hover:-translate-y-1 sharif-bold">
 
 		                            ورود به محاسبه‌گر
 

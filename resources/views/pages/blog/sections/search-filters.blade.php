@@ -1,68 +1,71 @@
-	<!-- Search & Filters -->
-		<section id="articles" class="py-14 bg-white border-y border-[#ebc9a270]">
+<!-- Search & Filters -->
+	<section id="articles" class="py-14 bg-white border-y border-[#ebc9a270]">
 
-		    <div class="container mx-auto px-6">
+	    <div class="container mx-auto px-6">
 
-		        <!-- Search -->
-		        <div class="max-w-3xl mx-auto">
+	        <!-- Search -->
+	        <div class="max-w-3xl mx-auto">
 
-		            <div class="relative">
+	            <form action="{{ route('blog') }}" method="GET">
 
-		                <i data-lucide="search"
-		                   class="absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400"></i>
+	                @if(request('category'))
+	                    <input
+	                        type="hidden"
+	                        name="category"
+	                        value="{{ request('category') }}">
+	                @endif
 
-		                <input
-		                    type="text"
-		                    placeholder="عنوان مقاله، موضوع یا کلمه کلیدی را جستجو کنید..."
+	                <div class="relative">
 
-		                    class="w-full h-16 rounded-2xl bg-[#FAF8F4] border border-[#ebc9a270] pr-16 pl-6 text-lg outline-none transition-all duration-300 focus:border-[#0f4c3a] focus:ring-4 focus:ring-[#0f4c3a]/10">
+	                    <i data-lucide="search"
+	                        class="absolute right-6 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400"></i>
 
-		            </div>
+	                    <input
+	                        type="text"
+	                        name="search"
+	                        value="{{ request('search') }}"
+	                        placeholder="عنوان مقاله، موضوع یا کلمه کلیدی را جستجو کنید..."
+	                        class="w-full h-16 rounded-2xl bg-[#FAF8F4] border border-[#ebc9a270] pr-16 pl-6 text-lg outline-none transition-all duration-300 focus:border-[#0f4c3a] focus:ring-4 focus:ring-[#0f4c3a]/10">
 
-		        </div>
+	                </div>
 
-		        <!-- Filters -->
-		        <div class="flex flex-wrap justify-center gap-4 mt-10">
+	            </form>
 
-		            <!-- Active -->
-		            <button
-		                class="px-6 py-3 rounded-full bg-[#0f4c3a] text-white font-medium transition-all duration-300 shadow-lg shadow-[#0f4c3a]/10">
+	        </div>
 
-		                همه
+	        <!-- Filters -->
+	        <div class="flex flex-wrap justify-center gap-4 mt-10">
 
-		            </button>
+	            {{-- همه --}}
+	            <a
+	                href="{{ route('blog', request()->except('category')) }}"
+	                class="px-6 py-3 rounded-full transition-all duration-300
+	                {{ request()->filled('category')
+	                    ? 'bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white hover:border-[#a67c52]'
+	                    : 'bg-[#0f4c3a] text-white shadow-lg shadow-[#0f4c3a]/10' }}">
 
-		            <button
-		                class="px-6 py-3 rounded-full bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white hover:border-[#a67c52] transition-all duration-300">
+	                همه
 
-		                حسابداری
+	            </a>
 
-		            </button>
+	            @foreach($categories as $category)
 
-		            <button
-		                class="px-6 py-3 rounded-full bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white hover:border-[#a67c52] transition-all duration-300">
+	                <a
+	                    href="{{ route('blog', array_merge(request()->except('page'), ['category' => $category->slug])) }}"
+	                    class="px-6 py-3 rounded-full transition-all duration-300
+	                    {{ request('category') == $category->slug
+	                        ? 'bg-[#0f4c3a] text-white shadow-lg shadow-[#0f4c3a]/10'
+	                        : 'bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white hover:border-[#a67c52]' }}">
 
-		                مالیات
+	                    {{ $category->name }}
 
-		            </button>
+	                </a>
 
-		            <button
-		                class="px-6 py-3 rounded-full bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white hover:border-[#a67c52] transition-all duration-300">
+	            @endforeach
 
-		                تامین اجتماعی
+	        </div>
 
-		            </button>
+	    </div>
 
-		            <button
-		                class="px-6 py-3 rounded-full bg-white border border-[#ebc9a270] text-[#0f4c3a] hover:bg-[#a67c52] hover:text-white hover:border-[#a67c52] transition-all duration-300">
-
-		                حقوق و دستمزد
-
-		            </button>
-
-		        </div>
-
-		    </div>
-
-		</section>
-	<!-- ./Search & Filters -->
+	</section>
+<!-- ./Search & Filters -->

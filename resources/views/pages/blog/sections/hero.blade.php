@@ -41,7 +41,7 @@
 		                </span>
 
 		                <!-- Title -->
-		                <h1 class="text-5xl lg:text-6xl font-black text-[#0f4c3a] leading-tight">
+		                <h1 class="text-3xl lg:text-4xl font-black text-[#0f4c3a] leading-tight">
 
 		                    آخرین مقالات
 		                    <br>
@@ -72,7 +72,7 @@
 
 		                    </a>
 
-		                    <a href="#calculator"
+		                    <a href="{{ route('calculator') }}"
 		                       class="inline-flex items-center gap-3 border border-[#a67c52] text-[#a67c52] hover:bg-[#a67c52] hover:text-white px-7 py-4 rounded-2xl transition-all duration-300">
 
 		                        <i data-lucide="calculator"></i>
@@ -109,15 +109,15 @@
 		                        </div>
 
 		                        <h3 class="text-2xl font-bold text-[#0f4c3a]">
-		                            دانش مالی
+		                            افزایش دانش مالی
 		                        </h3>
 
-		                        <p class="text-gray-500 mt-3 max-w-xs leading-8">
+		                        <!-- <p class="text-gray-500 mt-3 max-w-xs leading-8">
 
 		                            این بخش برای تصویر یا ایلوستریشن اختصاصی
 		                            صفحه مقالات در نظر گرفته شده است.
 
-		                        </p>
+		                        </p> -->
 
 		                    </div>
 

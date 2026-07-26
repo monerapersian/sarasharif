@@ -37,55 +37,43 @@
 
 		            <!-- Card -->
 
-		            <article
-		                class="group rounded-[32px] bg-white border border-slate-200 p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
+		            <article class="group rounded-[32px] bg-white border border-slate-200 p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
 
-		                <div
-		                    class="w-16 h-16 rounded-2xl bg-[#0f4c3a]/10 flex items-center justify-center transition duration-500 group-hover:bg-[#a67c52]/20">
+					    <div class="w-16 h-16 mx-auto rounded-2xl bg-[#0f4c3a]/10 flex items-center justify-center transition duration-500 group-hover:bg-[#a67c52]/20">
 
-		                    <i data-lucide="calculator"
-		                        class="w-8 h-8 text-[#a67c52] transition duration-500 group-hover:rotate-6"></i>
+					        <i data-lucide="calculator"
+					            class="w-8 h-8 text-[#a67c52] transition duration-500 group-hover:rotate-6"></i>
 
-		                </div>
+					    </div>
 
-		                <h3 class="mt-8 text-2xl font-bold text-[#0f4c3a]">
+					    <h3 class="mt-8 text-2xl font-bold text-[#0f4c3a] text-center">
 
-		                    حسابداری و حسابرسی
+					        حسابداری و حسابرسی
 
-		                </h3>
+					    </h3>
 
-		                <p class="mt-5 leading-8 text-slate-600">
+					    <p class="mt-5 leading-8 text-slate-600">
 
-		                    طراحی و اجرای سیستم‌های مالی،
-		                    تهیه گزارش‌های مالی و انجام خدمات
-		                    حسابرسی برای کسب‌وکارها.
+					        طراحی و اجرای سیستم‌های مالی،
+					        تهیه گزارش‌های مالی و انجام خدمات
+					        حسابرسی برای کسب‌وکارها.
 
-		                </p>
+					    </p>
 
-		                <a href="#"
-		                    class="mt-8 inline-flex items-center gap-2 text-[#0f4c3a] font-semibold group-hover:text-[#a67c52] transition">
-
-		                    مشاهده خدمات
-
-		                    <i data-lucide="arrow-left"
-		                        class="w-5 h-5"></i>
-
-		                </a>
-
-		            </article>
+					</article>
 
 		            <!-- مالیات -->
 
 		            <article class="group rounded-[32px] bg-white border border-slate-200 p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
 
-		                <div class="w-16 h-16 rounded-2xl bg-[#0f4c3a]/10 flex items-center justify-center">
+		                <div class="w-16 h-16 mx-auto rounded-2xl bg-[#0f4c3a]/10 flex items-center justify-center transition duration-500 group-hover:bg-[#a67c52]/20">
 
 		                    <i data-lucide="badge-percent"
-		                        class="w-8 h-8 text-[#a67c52]"></i>
+		                        class="w-8 h-8 text-[#a67c52] transition duration-500 group-hover:rotate-6"></i>
 
 		                </div>
 
-		                <h3 class="mt-8 text-2xl font-bold text-[#0f4c3a]">
+		                <h3 class="mt-8 text-2xl font-bold text-[#0f4c3a] text-center">
 
 		                    مالیات
 
@@ -99,30 +87,20 @@
 
 		                </p>
 
-		                <a href="#"
-		                    class="mt-8 inline-flex items-center gap-2 text-[#0f4c3a] font-semibold">
-
-		                    مشاهده خدمات
-
-		                    <i data-lucide="arrow-left"
-		                        class="w-5 h-5"></i>
-
-		                </a>
-
 		            </article>
 
 		            <!-- تامین اجتماعی -->
 
 		            <article class="group rounded-[32px] bg-white border border-slate-200 p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
 
-		                <div class="w-16 h-16 rounded-2xl bg-[#0f4c3a]/10 flex items-center justify-center">
+		                <div class="w-16 h-16 mx-auto rounded-2xl bg-[#0f4c3a]/10 flex items-center justify-center transition duration-500 group-hover:bg-[#a67c52]/20">
 
 		                    <i data-lucide="shield-check"
-		                        class="w-8 h-8 text-[#a67c52]"></i>
+		                        class="w-8 h-8 text-[#a67c52] transition duration-500 group-hover:rotate-6"></i>
 
 		                </div>
 
-		                <h3 class="mt-8 text-2xl font-bold text-[#0f4c3a]">
+		                <h3 class="mt-8 text-2xl font-bold text-[#0f4c3a] text-center">
 
 		                    تأمین اجتماعی
 
@@ -136,30 +114,20 @@
 
 		                </p>
 
-		                <a href="#"
-		                    class="mt-8 inline-flex items-center gap-2 text-[#0f4c3a] font-semibold">
-
-		                    مشاهده خدمات
-
-		                    <i data-lucide="arrow-left"
-		                        class="w-5 h-5"></i>
-
-		                </a>
-
 		            </article>
 
 		            <!-- سامانه مودیان -->
 
 		            <article class="group rounded-[32px] bg-white border border-slate-200 p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
 
-		                <div class="w-16 h-16 rounded-2xl bg-[#0f4c3a]/10 flex items-center justify-center">
+		                <div class="w-16 h-16 mx-auto rounded-2xl bg-[#0f4c3a]/10 flex items-center justify-center transition duration-500 group-hover:bg-[#a67c52]/20">
 
 		                    <i data-lucide="monitor-smartphone"
-		                        class="w-8 h-8 text-[#a67c52]"></i>
+		                        class="w-8 h-8 text-[#a67c52] transition duration-500 group-hover:rotate-6"></i>
 
 		                </div>
 
-		                <h3 class="mt-8 text-2xl font-bold text-[#0f4c3a]">
+		                <h3 class="mt-8 text-2xl font-bold text-[#0f4c3a] text-center">
 
 		                    سامانه مودیان
 
@@ -172,16 +140,6 @@
 		                    ثبت صورتحساب الکترونیکی و پشتیبانی سامانه مودیان.
 
 		                </p>
-
-		                <a href="#"
-		                    class="mt-8 inline-flex items-center gap-2 text-[#0f4c3a] font-semibold">
-
-		                    مشاهده خدمات
-
-		                    <i data-lucide="arrow-left"
-		                        class="w-5 h-5"></i>
-
-		                </a>
 
 		            </article>
 

@@ -1,230 +1,282 @@
-	<!-- Contact -->
-		<section class="py-20 bg-slate-50">
+<!-- Contact -->
+	<section class="py-20 bg-slate-50">
 
-		    <div class="container mx-auto px-6">
+	    <div class="container mx-auto px-6">
 
-		        <!-- Title -->
+	        <!-- Title -->
 
-		        <div class="text-center max-w-3xl mx-auto mb-16">
+	        <div class="text-center max-w-3xl mx-auto mb-16">
 
-		            <span class="inline-flex items-center gap-2 text-[#a67c52] font-semibold">
+	            <span class="inline-flex items-center gap-2 text-[#a67c52] font-semibold">
 
-		                <span class="w-2 h-2 rounded-full bg-[#a67c52]"></span>
+	                <span class="w-2 h-2 rounded-full bg-[#a67c52]"></span>
 
-		                ارتباط با سارا شریف
+	                ارتباط با سارا شریف
 
-		            </span>
+	            </span>
 
-		            <h2 class="mt-4 text-3xl lg:text-5xl font-black text-[#0f4c3a]">
+	            <h2 class="mt-4 text-3xl lg:text-5xl font-black text-[#0f4c3a]">
 
-		                همیشه آماده پاسخگویی هستم
+	                همیشه آماده پاسخگویی هستم
 
-		            </h2>
+	            </h2>
 
-		            <p class="mt-6 text-slate-600 leading-9">
+	            <p class="mt-6 text-slate-600 leading-9">
 
-		                از طریق فرم زیر یا اطلاعات تماس، سوالات و درخواست‌های خود را
-		                ارسال کنید.
+	                از طریق فرم زیر یا اطلاعات تماس، سوالات و درخواست‌های خود را
+	                ارسال کنید.
 
-		            </p>
+	            </p>
 
-		        </div>
+	        </div>
 
-		        <div class="grid lg:grid-cols-12 gap-10">
+	        <div class="grid lg:grid-cols-12 gap-10">
 
-		            <!-- ========================= -->
-		            <!-- Contact Info -->
-		            <!-- ========================= -->
+	            <!-- ========================= -->
+	            <!-- Contact Info -->
+	            <!-- ========================= -->
 
-		            <aside class="lg:col-span-4 space-y-5">
+	            <aside class="lg:col-span-4 space-y-5">
 
-		                <!-- Phone -->
+	                <!-- Phone -->
 
-		                <div class="rounded-3xl bg-white p-6 shadow-sm border border-slate-200 hover:shadow-xl transition">
+	                <div class="rounded-3xl bg-white p-6 shadow-sm border border-slate-200 hover:shadow-xl transition">
 
-		                    <div class="flex items-start gap-4">
+	                    <div class="flex items-start gap-4">
 
-		                        <div class="w-14 h-14 rounded-2xl bg-[#0f4c3a]/10 flex items-center justify-center">
+	                        <div class="w-14 h-14 rounded-2xl bg-[#0f4c3a]/10 flex items-center justify-center">
 
-		                            <i data-lucide="phone"
-		                               class="w-7 h-7 text-[#a67c52]"></i>
+	                            <i data-lucide="phone" class="w-7 h-7 text-[#a67c52]"></i>
 
-		                        </div>
+	                        </div>
 
-		                        <div>
+	                        <div>
 
-		                            <h3 class="font-bold text-[#0f4c3a]">
+	                            <h3 class="font-bold text-[#0f4c3a]">
 
-		                                شماره تماس
+	                                شماره تماس
 
-		                            </h3>
+	                            </h3>
 
-		                            <p class="mt-2 text-slate-600">
+	                            <p class="mt-2 text-slate-600">
 
-		                                0912 xxx xxxx
+	                                {{ $sara->phone }}
 
-		                            </p>
+	                            </p>
 
-		                        </div>
+	                        </div>
 
-		                    </div>
+	                    </div>
 
-		                </div>
+	                </div>
 
-		                <!-- Email -->
+	                <!-- Email -->
 
-		                <div class="rounded-3xl bg-white p-6 shadow-sm border border-slate-200 hover:shadow-xl transition">
+	                <div class="rounded-3xl bg-white p-6 shadow-sm border border-slate-200 hover:shadow-xl transition">
 
-		                    info@sarasharif.ir
+	                    {{ $sara->email }}
 
-		                </div>
+	                </div>
 
-		                <!-- Address -->
+	                <!-- Website -->
 
-		                <div class="rounded-3xl bg-white p-6 shadow-sm border border-slate-200 hover:shadow-xl transition">
+	                <div class="rounded-3xl bg-white p-6 shadow-sm border border-slate-200 hover:shadow-xl transition">
 
-		                    www.sarasharif.ir
+	                    www.sarasharif.ir
 
-		                </div>
+	                </div>
 
-		                <!-- Working Hours -->
+	                <!-- Working Hours -->
 
-		                <div class="rounded-3xl bg-[#0f4c3a] text-white p-6">
+	                <div class="rounded-3xl bg-[#0f4c3a] text-white p-6">
 
-		                    <h3 class="font-bold">
+	                    <h3 class="font-bold">
 
-		                        ساعات پاسخگویی
+	                        ساعات پاسخگویی
 
-		                    </h3>
+	                    </h3>
 
-		                    <p class="mt-4 leading-8 text-white/80">
+	                    <p class="mt-4 leading-8 text-white/80">
 
-		                        شنبه تا چهارشنبه
+	                        شنبه تا چهارشنبه
 
-		                        ۹ الی ۱۷
+	                        ۹ الی ۱۷
 
-		                    </p>
+	                    </p>
 
-		                </div>
+	                </div>
 
-		            </aside>
+	            </aside>
 
-		            <!-- ========================= -->
-		            <!-- Contact Form -->
-		            <!-- ========================= -->
+	            <!-- ========================= -->
+	            <!-- Contact Form -->
+	            <!-- ========================= -->
 
-		            <div class="lg:col-span-8">
+	            <div class="lg:col-span-8">
 
-		                <div class="rounded-[36px] bg-white border border-slate-200 shadow-xl p-8 lg:p-10">
+	                <div class="rounded-[36px] bg-white border border-slate-200 shadow-xl p-8 lg:p-10">
 
-		                    <div class="grid md:grid-cols-2 gap-6">
+	                    @if(session('success'))
 
-		                        <!-- Name -->
+	                        <div class="mb-6 rounded-2xl bg-green-100 text-green-700 px-5 py-4">
 
-		                        <div class="ss-field">
+	                            {{ session('success') }}
 
-		                            <label class="block mb-3 font-semibold text-slate-700 ss-label">
+	                        </div>
 
-		                            	<i data-lucide="user"></i>
+	                    @endif
 
-		                                نام و نام خانوادگی
+	                    <form action="{{ route('contact.store') }}" method="POST">
 
-		                            </label>
+	                        @csrf
 
-		                            <input type="text" class="ss-input" placeholder="نام خود را وارد کنید">
+	                        <div class="grid md:grid-cols-2 gap-6">
 
-		                        </div>
+	                            <!-- Name -->
 
-		                        <!-- Mobile -->
+	                            <div class="ss-field">
 
-		                        <div class="ss-field">
+	                                <label class="flex items-center mb-3 font-semibold text-slate-700 ss-label">
 
-		                            <label class="block mb-3 font-semibold text-slate-700 ss-label">
-		                            	<i data-lucide="smartphone"></i>
+	                                    <i data-lucide="user"></i>
 
-		                                شماره موبایل
+	                                    نام و نام خانوادگی
 
-		                            </label>
+	                                </label>
 
-		                            <input
-		                                type="text"
-		                                class="ss-input"
-		                                placeholder="شماره تماس خود را وارد کنید">
+	                                <input
+	                                    type="text"
+	                                    name="name"
+	                                    value="{{ old('name') }}"
+	                                    class="ss-input"
+	                                    placeholder="نام خود را وارد کنید">
 
-		                        </div>
+	                                @error('name')
+	                                    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+	                                @enderror
 
-		                        <!-- Email -->
+	                            </div>
 
-		                        <div class="ss-field">
+	                            <!-- Mobile -->
 
-		                            <label class="block mb-3 font-semibold text-slate-700 ss-label">
-		                            	<i data-lucide="at-sign"></i>
+	                            <div class="ss-field">
 
-		                                ایمیل
+	                                <label class="flex items-center mb-3 font-semibold text-slate-700 ss-label">
 
-		                            </label>
+	                                    <i data-lucide="smartphone"></i>
 
-		                            <input
-		                                type="email"
-		                                class="ss-input"
-		                                placeholder="ایمیل خود را وارد کنید">
+	                                    شماره موبایل
 
-		                        </div>
+	                                </label>
 
-		                        <!-- Subject -->
+	                                <input
+	                                    type="text"
+	                                    name="phone"
+	                                    value="{{ old('phone') }}"
+	                                    class="ss-input"
+	                                    placeholder="شماره تماس خود را وارد کنید">
 
-		                        <div class="ss-field">
+	                                @error('phone')
+	                                    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+	                                @enderror
 
-		                            <label class="block mb-3 font-semibold text-slate-700 ss-label">
-		                            	<i data-lucide="file-type"></i>
+	                            </div>
 
-		                                موضوع
+	                            <!-- Email -->
 
-		                            </label>
+	                            <div class="ss-field">
 
-		                            <input
-		                                type="text"
-		                                class="ss-input"
-		                                placeholder="موضوع پیام را وارد کنید">
+	                                <label class="flex items-center mb-3 font-semibold text-slate-700 ss-label">
 
-		                        </div>
+	                                    <i data-lucide="at-sign"></i>
 
-		                    </div>
+	                                    ایمیل
 
-		                    <!-- Message -->
+	                                </label>
 
-		                    <div class="mt-6 ss-field">
+	                                <input
+	                                    type="email"
+	                                    name="email"
+	                                    value="{{ old('email') }}"
+	                                    class="ss-input"
+	                                    placeholder="ایمیل خود را وارد کنید">
 
-		                        <label class="block mb-3 font-semibold text-slate-700 ss-label">
-		                        	<i data-lucide="scroll-text"></i>
+	                                @error('email')
+	                                    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+	                                @enderror
 
-		                            متن پیام
+	                            </div>
 
-		                        </label>
+	                            <!-- Subject -->
 
-		                        <textarea
-		                            rows="7"
-		                            class="ss-input resize-none"
-		                            placeholder="پیام خود را وارد کنید"></textarea>
+	                            <div class="ss-field">
 
-		                    </div>
+	                                <label class="flex items-center mb-3 font-semibold text-slate-700 ss-label">
 
-		                    <!-- Button -->
+	                                    <i data-lucide="file-type"></i>
 
-		                    <button
-		                        class="mt-8 px-10 py-4 rounded-2xl bg-[#0f4c3a] hover:bg-[#14614b] text-white font-bold transition sharif-bold">
+	                                    موضوع
 
-		                        ارسال پیام
+	                                </label>
 
-		                    </button>
+	                                <input
+	                                    type="text"
+	                                    name="subject"
+	                                    value="{{ old('subject') }}"
+	                                    class="ss-input"
+	                                    placeholder="موضوع پیام را وارد کنید">
 
-		                </div>
+	                                @error('subject')
+	                                    <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+	                                @enderror
 
-		            </div>
+	                            </div>
 
-		        </div>
+	                        </div>
 
-		    </div>
+	                        <!-- Message -->
 
-		</section>
-	<!-- ./Contact -->
+	                        <div class="mt-6 ss-field">
+
+	                            <label class="flex items-center mb-3 font-semibold text-slate-700 ss-label">
+
+	                                <i data-lucide="scroll-text"></i>
+
+	                                متن پیام
+
+	                            </label>
+
+	                            <textarea
+	                                name="message"
+	                                rows="7"
+	                                class="ss-input resize-none py-2 h-20"
+	                                placeholder="پیام خود را وارد کنید">{{ old('message') }}</textarea>
+
+	                            @error('message')
+	                                <p class="text-red-500 text-sm mt-2">{{ $message }}</p>
+	                            @enderror
+
+	                        </div>
+
+	                        <!-- Button -->
+
+	                        <button
+	                            type="submit"
+	                            class="mt-8 px-10 py-4 rounded-2xl bg-[#0f4c3a] hover:bg-[#14614b] text-white font-bold transition sharif-bold">
+
+	                            ارسال پیام
+
+	                        </button>
+
+	                    </form>
+
+	                </div>
+
+	            </div>
+
+	        </div>
+
+	    </div>
+
+	</section>
+<!-- ./Contact -->

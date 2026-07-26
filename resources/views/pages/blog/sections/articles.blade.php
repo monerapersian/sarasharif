@@ -13,8 +13,28 @@
 		                </h2>
 
 		                <p class="text-gray-500 mt-2">
-		                    نمایش ۱ تا ۹ از ۳۲ مقاله
-		                </p>
+
+						    نمایش
+
+						    <span class="font-bold text-[#0f4c3a]">
+						        {{ $posts->firstItem() ?? 0 }}
+						    </span>
+
+						    تا
+
+						    <span class="font-bold text-[#0f4c3a]">
+						        {{ $posts->lastItem() ?? 0 }}
+						    </span>
+
+						    از
+
+						    <span class="font-bold text-[#0f4c3a]">
+						        {{ $posts->total() }}
+						    </span>
+
+						    مقاله
+
+						</p>
 
 		            </div>
 
@@ -29,686 +49,91 @@
 		        </div>
 
 		        <!-- Grid -->
-		        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+				<div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-		            <!-- Card -->
-		            <article class="group flex flex-col bg-white rounded-[28px] overflow-hidden border border-[#ebc9a270] hover:shadow-2xl transition duration-500">
+				    @forelse($posts as $post)
 
-		                <!-- Image -->
-		                <div class="relative overflow-hidden">
+				        <article class="group flex flex-col bg-white rounded-[28px] overflow-hidden border border-[#ebc9a270] hover:shadow-2xl transition duration-500">
 
-		                    <img src="images/article-1.jpg"
-		                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-700">
+				            <!-- Image -->
+				            <div class="relative overflow-hidden">
 
-		                    <span
-		                        class="absolute top-5 right-5 bg-[#a67c52] text-white text-xs px-4 py-2 rounded-full">
+				                <img
+				                    src="{{ $post->featured_image ? asset('storage/' . $post->featured_image) : asset('images/article-placeholder.jpg') }}"
+				                    alt="{{ $post->title }}"
+				                    class="w-full h-64 object-cover group-hover:scale-105 transition duration-700">
 
-		                        مالیات
+				                @if($post->categories->isNotEmpty())
+				                    <span class="absolute top-5 right-5 bg-[#a67c52] text-white text-xs px-4 py-2 rounded-full">
+				                        {{ $post->categories->first()->name }}
+				                    </span>
+				                @endif
 
-		                    </span>
+				            </div>
 
-		                </div>
+				            <!-- Body -->
+				            <div class="flex flex-col flex-1 p-7">
 
-		                <!-- Body -->
-		                <div class="flex flex-col flex-1 p-7">
+				                <!-- Meta -->
+				                <div class="flex justify-between text-sm text-gray-500 mb-5">
 
-		                    <!-- Meta -->
-		                    <div class="flex justify-between text-sm text-gray-500 mb-5">
+				                    <span class="flex items-center gap-2">
+				                        <i data-lucide="clock-3" class="w-4 h-4"></i>
+				                        ۷ دقیقه
+				                    </span>
 
-		                        <span class="flex items-center gap-2">
+				                    <span class="flex items-center gap-2">
+				                        <i data-lucide="calendar-days" class="w-4 h-4"></i>
+				                        {{ optional($post->published_at)->format('Y/m/d') }}
+				                    </span>
 
-		                            <i data-lucide="clock-3" class="w-4 h-4"></i>
+				                </div>
 
-		                            ۷ دقیقه
+				                <!-- Title -->
+				                <h3 class="text-2xl font-bold text-[#0f4c3a] leading-9 mb-5 group-hover:text-[#a67c52] transition">
+				                    {{ $post->title }}
+				                </h3>
 
-		                        </span>
+				                <!-- Description -->
+				                <p class="flex-1 text-gray-600 leading-8 mb-8">
+				                    {{ $post->excerpt }}
+				                </p>
 
-		                        <span class="flex items-center gap-2">
+				                <!-- Button -->
+				                <a href="{{ route('blog.show', $post->slug) }}"
+				                    class="flex justify-center items-center gap-3 w-full bg-[#0f4c3a] hover:bg-[#8b6743] text-white rounded-2xl py-4 transition-all duration-300">
 
-		                            <i data-lucide="calendar-days" class="w-4 h-4"></i>
+				                    مطالعه مقاله
 
-		                            ۱۲ خرداد ۱۴۰۵
+				                    <i data-lucide="arrow-left" class="group-hover:-translate-x-1 transition"></i>
 
-		                        </span>
+				                </a>
 
-		                    </div>
+				            </div>
 
-		                    <!-- Title -->
-		                    <h3
-		                        class="text-2xl font-bold text-[#0f4c3a] leading-9 mb-5 group-hover:text-[#a67c52] transition">
+				        </article>
 
-		                        راهنمای جامع ارسال اظهارنامه مالیاتی
+				    @empty
 
-		                    </h3>
+				        <div class="md:col-span-2 xl:col-span-3">
 
-		                    <!-- Description -->
-		                    <p class="flex-1 text-gray-600 leading-8 mb-8">
+				            <div class="bg-white border border-[#ebc9a270] rounded-3xl p-12 text-center">
 
-		                        مهم‌ترین نکات، مدارک مورد نیاز و مراحل ارسال اظهارنامه
-		                        مالیاتی را به زبان ساده بررسی کرده‌ایم تا بدون دغدغه
-		                        اظهارنامه خود را ثبت کنید...
+				                <h3 class="text-2xl font-bold text-[#0f4c3a]">
+				                    مقاله‌ای یافت نشد
+				                </h3>
 
-		                    </p>
+				                <p class="text-gray-500 mt-4">
+				                    نتیجه‌ای برای جستجو یا فیلتر انتخاب‌شده وجود ندارد.
+				                </p>
 
-		                    <!-- Button -->
-		                    <a href="#"
-		                        class="flex justify-center items-center gap-3 w-full bg-[#0f4c3a] hover:bg-[#8b6743] text-white rounded-2xl py-4 transition-all duration-300">
+				            </div>
 
-		                        مطالعه مقاله
+				        </div>
 
-		                        <i data-lucide="arrow-left"
-		                            class="group-hover:-translate-x-1 transition"></i>
+				    @endforelse
 
-		                    </a>
-
-		                </div>
-
-		            </article>
-
-		            <!-- Card -->
-		            <!-- Card -->
-		            <article class="group flex flex-col bg-white rounded-[28px] overflow-hidden border border-[#ebc9a270] hover:shadow-2xl transition duration-500">
-
-		                <!-- Image -->
-		                <div class="relative overflow-hidden">
-
-		                    <img src="images/article-1.jpg"
-		                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-700">
-
-		                    <span
-		                        class="absolute top-5 right-5 bg-[#a67c52] text-white text-xs px-4 py-2 rounded-full">
-
-		                        مالیات
-
-		                    </span>
-
-		                </div>
-
-		                <!-- Body -->
-		                <div class="flex flex-col flex-1 p-7">
-
-		                    <!-- Meta -->
-		                    <div class="flex justify-between text-sm text-gray-500 mb-5">
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="clock-3" class="w-4 h-4"></i>
-
-		                            ۷ دقیقه
-
-		                        </span>
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="calendar-days" class="w-4 h-4"></i>
-
-		                            ۱۲ خرداد ۱۴۰۵
-
-		                        </span>
-
-		                    </div>
-
-		                    <!-- Title -->
-		                    <h3
-		                        class="text-2xl font-bold text-[#0f4c3a] leading-9 mb-5 group-hover:text-[#a67c52] transition">
-
-		                        راهنمای جامع ارسال اظهارنامه مالیاتی
-
-		                    </h3>
-
-		                    <!-- Description -->
-		                    <p class="flex-1 text-gray-600 leading-8 mb-8">
-
-		                        مهم‌ترین نکات، مدارک مورد نیاز و مراحل ارسال اظهارنامه
-		                        مالیاتی را به زبان ساده بررسی کرده‌ایم تا بدون دغدغه
-		                        اظهارنامه خود را ثبت کنید...
-
-		                    </p>
-
-		                    <!-- Button -->
-		                    <a href="#"
-		                        class="flex justify-center items-center gap-3 w-full bg-[#0f4c3a] hover:bg-[#8b6743] text-white rounded-2xl py-4 transition-all duration-300">
-
-		                        مطالعه مقاله
-
-		                        <i data-lucide="arrow-left"
-		                            class="group-hover:-translate-x-1 transition"></i>
-
-		                    </a>
-
-		                </div>
-
-		            </article>
-
-		            <!-- Card -->
-		            <!-- Card -->
-		            <article class="group flex flex-col bg-white rounded-[28px] overflow-hidden border border-[#ebc9a270] hover:shadow-2xl transition duration-500">
-
-		                <!-- Image -->
-		                <div class="relative overflow-hidden">
-
-		                    <img src="images/article-1.jpg"
-		                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-700">
-
-		                    <span
-		                        class="absolute top-5 right-5 bg-[#a67c52] text-white text-xs px-4 py-2 rounded-full">
-
-		                        مالیات
-
-		                    </span>
-
-		                </div>
-
-		                <!-- Body -->
-		                <div class="flex flex-col flex-1 p-7">
-
-		                    <!-- Meta -->
-		                    <div class="flex justify-between text-sm text-gray-500 mb-5">
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="clock-3" class="w-4 h-4"></i>
-
-		                            ۷ دقیقه
-
-		                        </span>
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="calendar-days" class="w-4 h-4"></i>
-
-		                            ۱۲ خرداد ۱۴۰۵
-
-		                        </span>
-
-		                    </div>
-
-		                    <!-- Title -->
-		                    <h3
-		                        class="text-2xl font-bold text-[#0f4c3a] leading-9 mb-5 group-hover:text-[#a67c52] transition">
-
-		                        راهنمای جامع ارسال اظهارنامه مالیاتی
-
-		                    </h3>
-
-		                    <!-- Description -->
-		                    <p class="flex-1 text-gray-600 leading-8 mb-8">
-
-		                        مهم‌ترین نکات، مدارک مورد نیاز و مراحل ارسال اظهارنامه
-		                        مالیاتی را به زبان ساده بررسی کرده‌ایم تا بدون دغدغه
-		                        اظهارنامه خود را ثبت کنید...
-
-		                    </p>
-
-		                    <!-- Button -->
-		                    <a href="#"
-		                        class="flex justify-center items-center gap-3 w-full bg-[#0f4c3a] hover:bg-[#8b6743] text-white rounded-2xl py-4 transition-all duration-300">
-
-		                        مطالعه مقاله
-
-		                        <i data-lucide="arrow-left"
-		                            class="group-hover:-translate-x-1 transition"></i>
-
-		                    </a>
-
-		                </div>
-
-		            </article>
-
-		            <!-- Card -->
-		            <!-- Card -->
-		            <article class="group flex flex-col bg-white rounded-[28px] overflow-hidden border border-[#ebc9a270] hover:shadow-2xl transition duration-500">
-
-		                <!-- Image -->
-		                <div class="relative overflow-hidden">
-
-		                    <img src="images/article-1.jpg"
-		                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-700">
-
-		                    <span
-		                        class="absolute top-5 right-5 bg-[#a67c52] text-white text-xs px-4 py-2 rounded-full">
-
-		                        مالیات
-
-		                    </span>
-
-		                </div>
-
-		                <!-- Body -->
-		                <div class="flex flex-col flex-1 p-7">
-
-		                    <!-- Meta -->
-		                    <div class="flex justify-between text-sm text-gray-500 mb-5">
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="clock-3" class="w-4 h-4"></i>
-
-		                            ۷ دقیقه
-
-		                        </span>
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="calendar-days" class="w-4 h-4"></i>
-
-		                            ۱۲ خرداد ۱۴۰۵
-
-		                        </span>
-
-		                    </div>
-
-		                    <!-- Title -->
-		                    <h3
-		                        class="text-2xl font-bold text-[#0f4c3a] leading-9 mb-5 group-hover:text-[#a67c52] transition">
-
-		                        راهنمای جامع ارسال اظهارنامه مالیاتی
-
-		                    </h3>
-
-		                    <!-- Description -->
-		                    <p class="flex-1 text-gray-600 leading-8 mb-8">
-
-		                        مهم‌ترین نکات، مدارک مورد نیاز و مراحل ارسال اظهارنامه
-		                        مالیاتی را به زبان ساده بررسی کرده‌ایم تا بدون دغدغه
-		                        اظهارنامه خود را ثبت کنید...
-
-		                    </p>
-
-		                    <!-- Button -->
-		                    <a href="#"
-		                        class="flex justify-center items-center gap-3 w-full bg-[#0f4c3a] hover:bg-[#8b6743] text-white rounded-2xl py-4 transition-all duration-300">
-
-		                        مطالعه مقاله
-
-		                        <i data-lucide="arrow-left"
-		                            class="group-hover:-translate-x-1 transition"></i>
-
-		                    </a>
-
-		                </div>
-
-		            </article>
-
-		            <!-- Card -->
-		            <!-- Card -->
-		            <article class="group flex flex-col bg-white rounded-[28px] overflow-hidden border border-[#ebc9a270] hover:shadow-2xl transition duration-500">
-
-		                <!-- Image -->
-		                <div class="relative overflow-hidden">
-
-		                    <img src="images/article-1.jpg"
-		                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-700">
-
-		                    <span
-		                        class="absolute top-5 right-5 bg-[#a67c52] text-white text-xs px-4 py-2 rounded-full">
-
-		                        مالیات
-
-		                    </span>
-
-		                </div>
-
-		                <!-- Body -->
-		                <div class="flex flex-col flex-1 p-7">
-
-		                    <!-- Meta -->
-		                    <div class="flex justify-between text-sm text-gray-500 mb-5">
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="clock-3" class="w-4 h-4"></i>
-
-		                            ۷ دقیقه
-
-		                        </span>
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="calendar-days" class="w-4 h-4"></i>
-
-		                            ۱۲ خرداد ۱۴۰۵
-
-		                        </span>
-
-		                    </div>
-
-		                    <!-- Title -->
-		                    <h3
-		                        class="text-2xl font-bold text-[#0f4c3a] leading-9 mb-5 group-hover:text-[#a67c52] transition">
-
-		                        راهنمای جامع ارسال اظهارنامه مالیاتی
-
-		                    </h3>
-
-		                    <!-- Description -->
-		                    <p class="flex-1 text-gray-600 leading-8 mb-8">
-
-		                        مهم‌ترین نکات، مدارک مورد نیاز و مراحل ارسال اظهارنامه
-		                        مالیاتی را به زبان ساده بررسی کرده‌ایم تا بدون دغدغه
-		                        اظهارنامه خود را ثبت کنید...
-
-		                    </p>
-
-		                    <!-- Button -->
-		                    <a href="#"
-		                        class="flex justify-center items-center gap-3 w-full bg-[#0f4c3a] hover:bg-[#8b6743] text-white rounded-2xl py-4 transition-all duration-300">
-
-		                        مطالعه مقاله
-
-		                        <i data-lucide="arrow-left"
-		                            class="group-hover:-translate-x-1 transition"></i>
-
-		                    </a>
-
-		                </div>
-
-		            </article>
-
-		            <!-- Card -->
-		            <!-- Card -->
-		            <article class="group flex flex-col bg-white rounded-[28px] overflow-hidden border border-[#ebc9a270] hover:shadow-2xl transition duration-500">
-
-		                <!-- Image -->
-		                <div class="relative overflow-hidden">
-
-		                    <img src="images/article-1.jpg"
-		                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-700">
-
-		                    <span
-		                        class="absolute top-5 right-5 bg-[#a67c52] text-white text-xs px-4 py-2 rounded-full">
-
-		                        مالیات
-
-		                    </span>
-
-		                </div>
-
-		                <!-- Body -->
-		                <div class="flex flex-col flex-1 p-7">
-
-		                    <!-- Meta -->
-		                    <div class="flex justify-between text-sm text-gray-500 mb-5">
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="clock-3" class="w-4 h-4"></i>
-
-		                            ۷ دقیقه
-
-		                        </span>
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="calendar-days" class="w-4 h-4"></i>
-
-		                            ۱۲ خرداد ۱۴۰۵
-
-		                        </span>
-
-		                    </div>
-
-		                    <!-- Title -->
-		                    <h3
-		                        class="text-2xl font-bold text-[#0f4c3a] leading-9 mb-5 group-hover:text-[#a67c52] transition">
-
-		                        راهنمای جامع ارسال اظهارنامه مالیاتی
-
-		                    </h3>
-
-		                    <!-- Description -->
-		                    <p class="flex-1 text-gray-600 leading-8 mb-8">
-
-		                        مهم‌ترین نکات، مدارک مورد نیاز و مراحل ارسال اظهارنامه
-		                        مالیاتی را به زبان ساده بررسی کرده‌ایم تا بدون دغدغه
-		                        اظهارنامه خود را ثبت کنید...
-
-		                    </p>
-
-		                    <!-- Button -->
-		                    <a href="#"
-		                        class="flex justify-center items-center gap-3 w-full bg-[#0f4c3a] hover:bg-[#8b6743] text-white rounded-2xl py-4 transition-all duration-300">
-
-		                        مطالعه مقاله
-
-		                        <i data-lucide="arrow-left"
-		                            class="group-hover:-translate-x-1 transition"></i>
-
-		                    </a>
-
-		                </div>
-
-		            </article>
-
-		            <!-- Card -->
-		            <!-- Card -->
-		            <article class="group flex flex-col bg-white rounded-[28px] overflow-hidden border border-[#ebc9a270] hover:shadow-2xl transition duration-500">
-
-		                <!-- Image -->
-		                <div class="relative overflow-hidden">
-
-		                    <img src="images/article-1.jpg"
-		                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-700">
-
-		                    <span
-		                        class="absolute top-5 right-5 bg-[#a67c52] text-white text-xs px-4 py-2 rounded-full">
-
-		                        مالیات
-
-		                    </span>
-
-		                </div>
-
-		                <!-- Body -->
-		                <div class="flex flex-col flex-1 p-7">
-
-		                    <!-- Meta -->
-		                    <div class="flex justify-between text-sm text-gray-500 mb-5">
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="clock-3" class="w-4 h-4"></i>
-
-		                            ۷ دقیقه
-
-		                        </span>
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="calendar-days" class="w-4 h-4"></i>
-
-		                            ۱۲ خرداد ۱۴۰۵
-
-		                        </span>
-
-		                    </div>
-
-		                    <!-- Title -->
-		                    <h3
-		                        class="text-2xl font-bold text-[#0f4c3a] leading-9 mb-5 group-hover:text-[#a67c52] transition">
-
-		                        راهنمای جامع ارسال اظهارنامه مالیاتی
-
-		                    </h3>
-
-		                    <!-- Description -->
-		                    <p class="flex-1 text-gray-600 leading-8 mb-8">
-
-		                        مهم‌ترین نکات، مدارک مورد نیاز و مراحل ارسال اظهارنامه
-		                        مالیاتی را به زبان ساده بررسی کرده‌ایم تا بدون دغدغه
-		                        اظهارنامه خود را ثبت کنید...
-
-		                    </p>
-
-		                    <!-- Button -->
-		                    <a href="#"
-		                        class="flex justify-center items-center gap-3 w-full bg-[#0f4c3a] hover:bg-[#8b6743] text-white rounded-2xl py-4 transition-all duration-300">
-
-		                        مطالعه مقاله
-
-		                        <i data-lucide="arrow-left"
-		                            class="group-hover:-translate-x-1 transition"></i>
-
-		                    </a>
-
-		                </div>
-
-		            </article>
-
-		            <!-- Card -->
-		            <!-- Card -->
-		            <article class="group flex flex-col bg-white rounded-[28px] overflow-hidden border border-[#ebc9a270] hover:shadow-2xl transition duration-500">
-
-		                <!-- Image -->
-		                <div class="relative overflow-hidden">
-
-		                    <img src="images/article-1.jpg"
-		                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-700">
-
-		                    <span
-		                        class="absolute top-5 right-5 bg-[#a67c52] text-white text-xs px-4 py-2 rounded-full">
-
-		                        مالیات
-
-		                    </span>
-
-		                </div>
-
-		                <!-- Body -->
-		                <div class="flex flex-col flex-1 p-7">
-
-		                    <!-- Meta -->
-		                    <div class="flex justify-between text-sm text-gray-500 mb-5">
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="clock-3" class="w-4 h-4"></i>
-
-		                            ۷ دقیقه
-
-		                        </span>
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="calendar-days" class="w-4 h-4"></i>
-
-		                            ۱۲ خرداد ۱۴۰۵
-
-		                        </span>
-
-		                    </div>
-
-		                    <!-- Title -->
-		                    <h3
-		                        class="text-2xl font-bold text-[#0f4c3a] leading-9 mb-5 group-hover:text-[#a67c52] transition">
-
-		                        راهنمای جامع ارسال اظهارنامه مالیاتی
-
-		                    </h3>
-
-		                    <!-- Description -->
-		                    <p class="flex-1 text-gray-600 leading-8 mb-8">
-
-		                        مهم‌ترین نکات، مدارک مورد نیاز و مراحل ارسال اظهارنامه
-		                        مالیاتی را به زبان ساده بررسی کرده‌ایم تا بدون دغدغه
-		                        اظهارنامه خود را ثبت کنید...
-
-		                    </p>
-
-		                    <!-- Button -->
-		                    <a href="#"
-		                        class="flex justify-center items-center gap-3 w-full bg-[#0f4c3a] hover:bg-[#8b6743] text-white rounded-2xl py-4 transition-all duration-300">
-
-		                        مطالعه مقاله
-
-		                        <i data-lucide="arrow-left"
-		                            class="group-hover:-translate-x-1 transition"></i>
-
-		                    </a>
-
-		                </div>
-
-		            </article>
-
-		            <!-- Card -->
-		            <!-- Card -->
-		            <article class="group flex flex-col bg-white rounded-[28px] overflow-hidden border border-[#ebc9a270] hover:shadow-2xl transition duration-500">
-
-		                <!-- Image -->
-		                <div class="relative overflow-hidden">
-
-		                    <img src="images/article-1.jpg"
-		                        class="w-full h-64 object-cover group-hover:scale-105 transition duration-700">
-
-		                    <span
-		                        class="absolute top-5 right-5 bg-[#a67c52] text-white text-xs px-4 py-2 rounded-full">
-
-		                        مالیات
-
-		                    </span>
-
-		                </div>
-
-		                <!-- Body -->
-		                <div class="flex flex-col flex-1 p-7">
-
-		                    <!-- Meta -->
-		                    <div class="flex justify-between text-sm text-gray-500 mb-5">
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="clock-3" class="w-4 h-4"></i>
-
-		                            ۷ دقیقه
-
-		                        </span>
-
-		                        <span class="flex items-center gap-2">
-
-		                            <i data-lucide="calendar-days" class="w-4 h-4"></i>
-
-		                            ۱۲ خرداد ۱۴۰۵
-
-		                        </span>
-
-		                    </div>
-
-		                    <!-- Title -->
-		                    <h3
-		                        class="text-2xl font-bold text-[#0f4c3a] leading-9 mb-5 group-hover:text-[#a67c52] transition">
-
-		                        راهنمای جامع ارسال اظهارنامه مالیاتی
-
-		                    </h3>
-
-		                    <!-- Description -->
-		                    <p class="flex-1 text-gray-600 leading-8 mb-8">
-
-		                        مهم‌ترین نکات، مدارک مورد نیاز و مراحل ارسال اظهارنامه
-		                        مالیاتی را به زبان ساده بررسی کرده‌ایم تا بدون دغدغه
-		                        اظهارنامه خود را ثبت کنید...
-
-		                    </p>
-
-		                    <!-- Button -->
-		                    <a href="#"
-		                        class="flex justify-center items-center gap-3 w-full bg-[#0f4c3a] hover:bg-[#8b6743] text-white rounded-2xl py-4 transition-all duration-300">
-
-		                        مطالعه مقاله
-
-		                        <i data-lucide="arrow-left"
-		                            class="group-hover:-translate-x-1 transition"></i>
-
-		                    </a>
-
-		                </div>
-
-		            </article>
-
-		            <!-- Card -->
-		            <!-- همین کارت را ۸ بار دیگر تکرار کن -->
-
-		        </div>
+				</div>
 
 		    </div>
 

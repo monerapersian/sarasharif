@@ -40,7 +40,7 @@
 
 		                        </span>
 
-		                        <h2 class="mt-6 text-4xl lg:text-5xl font-black text-white leading-relaxed">
+		                        <h2 class="mt-6 text-4xl lg:text-4xl font-black text-white leading-relaxed">
 
 		                            بیایید امور مالی
 		                            <span class="text-[#d6b389]">
@@ -94,7 +94,7 @@
 
 		                            </p>
 
-		                            <a href="#"
+		                            <a href="{{ route('contact') }}"
 		                                class="group mt-8 inline-flex items-center gap-3 rounded-2xl bg-[#a67c52] hover:bg-[#b78b5d] text-white px-8 py-4 font-bold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sharif-bold">
 
 		                                <i data-lucide="arrow-left"

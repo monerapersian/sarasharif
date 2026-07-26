@@ -1,9 +1,14 @@
 <!-- Footer -->
     <footer class="bg-[#0f4c3a] text-white relative overflow-hidden">
 
+        <!-- Pattern -->
+            <div class="absolute inset-0 opacity-5"
+                 style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size:24px 24px;">
+            </div>
+
         <!-- Decorative Shapes -->
-        <div class="absolute top-0 left-0 w-72 h-72 bg-[#a67c52]/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#3f917954] rounded-full blur-3xl"></div>
+            <div class="absolute top-0 left-0 w-72 h-72 bg-[#a67c52]/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#3f917954] rounded-full blur-3xl"></div>
 
         <div class="container mx-auto px-6 relative z-10">
 

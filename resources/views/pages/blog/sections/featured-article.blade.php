@@ -1,3 +1,5 @@
+@if($featuredPost)
+
 	<!-- Featured Article -->
 		<section class="py-24 bg-[#FAF8F4]">
 
@@ -6,7 +8,8 @@
 		        <!-- Section Title -->
 		        <div class="mb-10">
 
-		            <span class="inline-flex items-center gap-2 bg-[#ebc9a270] text-[#0f4c3a] px-4 py-2 rounded-full text-sm font-semibold">
+		            <span
+		                class="inline-flex items-center gap-2 bg-[#ebc9a270] text-[#0f4c3a] px-4 py-2 rounded-full text-sm font-semibold">
 
 		                <i data-lucide="star" class="w-4 h-4"></i>
 
@@ -25,18 +28,26 @@
 		                <!-- Image -->
 		                <div class="relative overflow-hidden">
 
-		                    <img
-		                        src="images/featured-article.jpg"
-		                        alt=""
-		                        class="w-full h-full min-h-[420px] object-cover group-hover:scale-105 transition duration-700">
+		                    @if($featuredPost->featured_image)
+
+		                        <img
+		                            src="{{ asset('storage/' . $featuredPost->featured_image) }}"
+		                            alt="{{ $featuredPost->title }}"
+		                            class="w-full h-full min-h-[420px] object-cover group-hover:scale-105 transition duration-700">
+
+		                    @endif
 
 		                    <!-- Category -->
-		                    <span
-		                        class="absolute top-6 right-6 bg-[#a67c52] text-white px-4 py-2 rounded-full text-sm">
+		                    @if($featuredPost->categories->isNotEmpty())
 
-		                        مالیات
+		                        <span
+		                            class="absolute top-6 right-6 bg-[#a67c52] text-white px-4 py-2 rounded-full text-sm">
 
-		                    </span>
+		                            {{ $featuredPost->categories->first()->name }}
+
+		                        </span>
+
+		                    @endif
 
 		                </div>
 
@@ -48,17 +59,9 @@
 
 		                        <span class="flex items-center gap-2">
 
-		                            <i data-lucide="clock-3" class="w-4 h-4"></i>
-
-		                            ۷ دقیقه مطالعه
-
-		                        </span>
-
-		                        <span class="flex items-center gap-2">
-
 		                            <i data-lucide="calendar-days" class="w-4 h-4"></i>
 
-		                            ۱۲ خرداد ۱۴۰۵
+		                            {{ $featuredPost->published_at?->format('Y/m/d') }}
 
 		                        </span>
 
@@ -67,26 +70,22 @@
 		                    <!-- Title -->
 		                    <h2 class="text-4xl font-black text-[#0f4c3a] leading-relaxed">
 
-		                        راهنمای جامع ارسال اظهارنامه مالیاتی
-		                        و نکات مهم قبل از ثبت نهایی
+		                        {{ $featuredPost->title }}
 
 		                    </h2>
 
 		                    <!-- Description -->
 		                    <p class="mt-8 text-gray-600 leading-9">
 
-		                        اگر قصد ارسال اظهارنامه مالیاتی را دارید، آشنایی با قوانین،
-		                        مدارک مورد نیاز و اشتباهات رایج می‌تواند از بروز مشکلات
-		                        مالیاتی جلوگیری کند. در این مقاله به صورت کامل مراحل ارسال
-		                        اظهارنامه را بررسی کرده‌ایم و نکات کاربردی را توضیح داده‌ایم.
+		                        {{ $featuredPost->excerpt }}
 
 		                    </p>
 
 		                    <!-- Button -->
 		                    <div class="mt-10">
 
-		                        <a href="#"
-		                           class="inline-flex items-center gap-3 bg-[#0f4c3a] hover:bg-[#8b6743] text-white px-8 py-4 rounded-2xl transition-all duration-300 hover:-translate-y-1">
+		                        <a href="{{ route('blog.show', $featuredPost->slug) }}"
+		                            class="inline-flex items-center gap-3 bg-[#0f4c3a] hover:bg-[#8b6743] text-white px-8 py-4 rounded-2xl transition-all duration-300 hover:-translate-y-1">
 
 		                            مطالعه مقاله
 
@@ -106,3 +105,5 @@
 
 		</section>
 	<!-- ./Featured Article -->
+
+@endif

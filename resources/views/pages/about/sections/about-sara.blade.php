@@ -22,7 +22,7 @@
 		                <div class="relative rounded-[32px] bg-slate-100 p-4 shadow-xl">
 
 		                    <img
-		                        src="assets/images/sara-sharif.jpg"
+		                        src="{{ asset('storage/' . $sara->profile_image) }}"
 		                        alt="سارا شریف"
 		                        class="w-full rounded-[24px] object-cover">
 
@@ -54,7 +54,7 @@
 
 		                                <p class="font-bold text-[#0f4c3a]">
 
-		                                    بیش از ... سال
+		                                    بیش از {{ $sara->experience_years }} سال
 
 		                                </p>
 
@@ -87,29 +87,13 @@
 		                <!-- Heading -->
 
 		                <h2 class="mt-4 text-2xl lg:text-3xl xl:text-4xl font-black text-[#0f4c3a] leading-relaxed">
-
-		                    همراه شما در مسیر
-		                    مدیریت مالی هوشمند
-
+		                	{{ $sara->intro_title }}
 		                </h2>
 
 		                <!-- Paragraph -->
 
 		                <p class="mt-8 text-slate-600 leading-8 lg:leading-9">
-
-		                    من سارا شریف، حسابدار و مشاور مالیاتی و بیمه هستم.
-		                    هدف من کمک به کسب‌وکارها، شرکت‌ها و صاحبان مشاغل برای
-		                    ایجاد نظم مالی، کاهش ریسک‌های مالیاتی و ارائه راهکارهای
-		                    کاربردی بر پایه قوانین روز است.
-
-		                </p>
-
-		                <p class="mt-5 text-slate-600 leading-8 lg:leading-9">
-
-		                    در این وب‌سایت تلاش کرده‌ام مجموعه‌ای از آموزش‌های کاربردی،
-		                    ابزارهای محاسباتی و تجربیات عملی خود را در اختیار شما قرار
-		                    دهم تا بتوانید تصمیم‌های مالی مطمئن‌تر و آگاهانه‌تری بگیرید.
-
+		                	{{ $sara->intro_text }}
 		                </p>
 
 		                <!-- Features -->
@@ -179,7 +163,7 @@
 
 		                        <h3 class="font-bold text-[#0f4c3a] text-lg">
 
-		                            بیمه
+		                            تامین اجتماعی
 
 		                        </h3>
 

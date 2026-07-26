@@ -28,7 +28,7 @@
 		                <!-- Breadcrumb -->
 		                <nav class="flex items-center gap-2 text-sm text-white/70 mb-6">
 
-		                    <a href="#" class="hover:text-[#d6b389] transition">
+		                    <a href="{{ route('home') }}" class="hover:text-[#d6b389] transition">
 		                        خانه
 		                    </a>
 
@@ -47,7 +47,7 @@
 		                    <span class="w-2 h-2 rounded-full bg-[#a67c52]"></span>
 
 		                    <span class="text-sm">
-		                        حسابدار، مشاور مالیاتی و بیمه
+		                        حسابدار، مشاور مالیاتی و تامین اجتماعی
 		                    </span>
 
 		                </div>
@@ -66,13 +66,7 @@
 
 		                <!-- Description -->
 
-		                <p class="mt-8 text-lg leading-9 text-white/80 max-w-xl">
-
-		                    هدف من کمک به کسب‌وکارها و صاحبان مشاغل برای ایجاد نظم مالی،
-		                    کاهش ریسک‌های مالیاتی و تصمیم‌گیری آگاهانه بر پایه اطلاعات
-		                    دقیق و به‌روز است.
-
-		                </p>
+		                <p class="mt-8 text-lg leading-9 text-white/80 max-w-xl">{{ $sara->intro_text }}</p>
 
 		                <!-- Quick Info -->
 
@@ -93,7 +87,7 @@
 		                            </p>
 
 		                            <p class="font-semibold sharif-bold">
-		                                حسابداری و مالیات
+		                                {{ $sara->activities ?: '-' }}
 		                            </p>
 
 		                        </div>
@@ -115,7 +109,7 @@
 		                            </p>
 
 		                            <p class="font-semibold sharif-bold">
-		                                حقوق و دستمزد
+		                                {{ $sara->specializations ?: '-' }}
 		                            </p>
 
 		                        </div>
@@ -147,7 +141,7 @@
 		                <div class="relative bg-white rounded-[36px] p-3 shadow-2xl">
 
 		                    <img
-		                        src="assets/images/sara-sharif.jpg"
+		                        src="{{ asset('storage/' . $sara->profile_image) }}"
 		                        alt="سارا شریف"
 		                        class="w-[360px] h-[430px] object-cover rounded-[28px]">
 
