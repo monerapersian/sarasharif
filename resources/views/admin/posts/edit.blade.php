@@ -16,7 +16,7 @@
 
 		            <nav class="flex items-center gap-2 text-sm text-gray-500 mb-3">
 
-		                <a href="#"
+		                <a href="{{ route('admin.dashboard') }}"
 		                   class="hover:text-[#0f4c3a] transition">
 
 		                    داشبورد
@@ -25,7 +25,7 @@
 
 		                <i data-lucide="chevron-left" class="w-4 h-4"></i>
 
-		                <a href="#"
+		                <a href="{{ route('admin.posts.index') }}"
 		                   class="hover:text-[#0f4c3a] transition">
 
 		                    مقالات
@@ -72,7 +72,7 @@
 
 		        <div>
 
-		            <a href="#"
+		            <a href="{{ route('admin.posts.index') }}"
 		               class="inline-flex items-center gap-3 px-6 py-4 rounded-2xl border border-[#ebc9a270] bg-white text-[#0f4c3a] hover:bg-[#FAF8F4] transition shadow-sm">
 
 		                <i data-lucide="arrow-right"></i>
@@ -286,7 +286,7 @@
 			                <input
 							    type="date"
 							    name="published_at"
-							    value="{{ old('published_at') }}"
+							    value="{{ old('published_at', $post->published_at?->format('Y-m-d')) }}"
 							    class="w-full h-14 rounded-2xl border border-[#ebc9a270] bg-[#FAF8F4] px-4 outline-none focus:border-[#0f4c3a]">
 
 			            </div>

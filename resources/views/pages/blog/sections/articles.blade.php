@@ -84,7 +84,7 @@
 
 				                    <span class="flex items-center gap-2">
 				                        <i data-lucide="calendar-days" class="w-4 h-4"></i>
-				                        {{ optional($post->published_at)->format('Y/m/d') }}
+				                        {{ jalali($post->published_at ?? $post->created_at, '%Y/%m/%d') }}
 				                    </span>
 
 				                </div>

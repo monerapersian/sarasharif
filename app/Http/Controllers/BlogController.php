@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Visit;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
     public function index(Request $request)
     {
+        Visit::create([
+            'page_type' => 'blog',
+            'post_id' => null,
+            'ip_address' => $request->ip(),
+        ]);
+
         // مقاله منتخب
         $featuredPost = Post::with('categories')
             ->where('status', 'published')
@@ -52,12 +59,18 @@ class BlogController extends Controller
         ));
     }
 
-    public function show($slug)
+    public function show(Request $request, $slug)
     {
         $post = Post::with('categories')
             ->where('status', 'published')
             ->where('slug', $slug)
             ->firstOrFail();
+
+        Visit::create([
+            'page_type' => 'post',
+            'post_id' => $post->id,
+            'ip_address' => $request->ip(),
+        ]);
 
         // مقاله قبلی
         $previousPost = Post::where('status', 'published')

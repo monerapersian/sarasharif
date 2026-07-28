@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<title>
 	    @yield('title', 'پنل مدیریت')
 	</title>
@@ -17,7 +18,6 @@
 			<aside id="sidebar" class="fixed top-0 right-0 h-screen w-72 bg-[#FAF8F4] border-l border-[#ebc9a270] flex flex-col transition-all duration-300 z-50">
 
 			    <!-- Header -->
-
 			    <div class="flex items-center justify-between h-20 px-6 border-b border-[#ebc9a270]">
 
 			        <div id="logoArea" class="overflow-hidden transition-all duration-300">
@@ -42,130 +42,97 @@
 			    </div>
 
 			    <!-- Menu -->
-
 			    <nav class="flex-1 overflow-y-auto px-3 py-5">
 
 			        <ul class="space-y-2">
 
+			            <!-- Dashboard -->
 			            <li>
 
-			                <a href="#"
-			                    class="group flex items-center gap-4 rounded-2xl bg-[#0f4c3a] text-white px-4 py-3">
+			                <a href="{{ route('admin.dashboard') }}"
+			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 transition
+			                    {{ request()->routeIs('admin.dashboard') ? 'bg-[#0f4c3a] text-white' : 'hover:bg-white hover:text-[#0f4c3a]' }}">
 
 			                    <i data-lucide="layout-dashboard" class="w-6 h-6 shrink-0"></i>
 
-			                    <span class="menu-text font-semibold whitespace-nowrap">
-
+			                    <span class="menu-text whitespace-nowrap">
 			                        داشبورد
-
 			                    </span>
 
 			                </a>
 
 			            </li>
 
+			            <!-- Articles -->
 			            <li>
 
-			                <a href="#"
-			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 hover:bg-white hover:text-[#0f4c3a] transition">
+			                <a href="{{ route('admin.posts.index') }}"
+			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 transition
+			                    {{ request()->routeIs('admin.posts.*') ? 'bg-[#0f4c3a] text-white' : 'hover:bg-white hover:text-[#0f4c3a]' }}">
 
 			                    <i data-lucide="newspaper" class="w-6 h-6 shrink-0"></i>
 
 			                    <span class="menu-text whitespace-nowrap">
-
 			                        مقالات
-
 			                    </span>
 
 			                    <span class="menu-badge mr-auto text-xs bg-[#ebc9a270] text-[#0f4c3a] px-2 py-1 rounded-full">
-
-			                        58
-
+			                        {{ \App\Models\Post::count() }}
 			                    </span>
 
 			                </a>
 
 			            </li>
 
+			            <!-- FAQ -->
 			            <li>
 
-			                <a href="#"
-			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 hover:bg-white hover:text-[#0f4c3a] transition">
+			                <a href="{{ route('admin.faqs.index') }}"
+			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 transition
+			                    {{ request()->routeIs('admin.faqs.*') ? 'bg-[#0f4c3a] text-white' : 'hover:bg-white hover:text-[#0f4c3a]' }}">
 
 			                    <i data-lucide="circle-help" class="w-6 h-6 shrink-0"></i>
 
 			                    <span class="menu-text whitespace-nowrap">
-
 			                        سوالات متداول
-
 			                    </span>
 
 			                </a>
 
 			            </li>
 
+			            <!-- Sara Information -->
 			            <li>
 
-			                <a href="#"
-			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 hover:bg-white hover:text-[#0f4c3a] transition">
+			                <a href="{{ route('admin.sara-information.edit') }}"
+			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 transition
+			                    {{ request()->routeIs('admin.sara-information.*') ? 'bg-[#0f4c3a] text-white' : 'hover:bg-white hover:text-[#0f4c3a]' }}">
 
 			                    <i data-lucide="user-round" class="w-6 h-6 shrink-0"></i>
 
 			                    <span class="menu-text whitespace-nowrap">
-
-			                        درباره سارا
-
+			                        اطلاعات سارا
 			                    </span>
 
 			                </a>
 
 			            </li>
 
+			            <!-- Contact Messages -->
 			            <li>
 
-			                <a href="#"
-			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 hover:bg-white hover:text-[#0f4c3a] transition">
+			                <a href="{{ route('admin.contact-messages.index') }}"
+			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 transition
+			                    {{ request()->routeIs('admin.contact-messages.*') ? 'bg-[#0f4c3a] text-white' : 'hover:bg-white hover:text-[#0f4c3a]' }}">
 
-			                    <i data-lucide="image" class="w-6 h-6 shrink-0"></i>
+			                    <i data-lucide="mail-search" class="w-6 h-6 shrink-0"></i>
 
 			                    <span class="menu-text whitespace-nowrap">
-
-			                        مدیریت تصاویر
-
+			                        پیام های تماس
 			                    </span>
 
-			                </a>
-
-			            </li>
-
-			            <li>
-
-			                <a href="#"
-			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 hover:bg-white hover:text-[#0f4c3a] transition">
-
-			                    <i data-lucide="phone-call" class="w-6 h-6 shrink-0"></i>
-
-			                    <span class="menu-text whitespace-nowrap">
-
-			                        اطلاعات تماس
-
-			                    </span>
-
-			                </a>
-
-			            </li>
-
-			            <li>
-
-			                <a href="#"
-			                    class="group flex items-center gap-4 rounded-2xl px-4 py-3 hover:bg-white hover:text-[#0f4c3a] transition">
-
-			                    <i data-lucide="settings" class="w-6 h-6 shrink-0"></i>
-
-			                    <span class="menu-text whitespace-nowrap">
-
-			                        تنظیمات
-
+			                    <span class="menu-badge mr-auto text-xs bg-red-100 text-red-600 px-2 py-1 rounded-full">
+			                        {{ \App\Models\ContactMessage::where('is_read', false)->count() }}
 			                    </span>
 
 			                </a>
@@ -177,21 +144,24 @@
 			    </nav>
 
 			    <!-- Footer -->
-
 			    <div class="border-t border-[#ebc9a270] p-3">
 
-			        <a href="#"
-			            class="flex items-center gap-4 rounded-2xl px-4 py-3 text-red-500 hover:bg-red-50 transition">
+			        <form method="POST" action="{{ route('logout') }}">
 
-			            <i data-lucide="log-out" class="w-6 h-6 shrink-0"></i>
+			            @csrf
 
-			            <span class="menu-text whitespace-nowrap">
+			            <button type="submit"
+			                class="w-full flex items-center gap-4 rounded-2xl px-4 py-3 text-red-500 hover:bg-red-50 transition">
 
-			                خروج
+			                <i data-lucide="log-out" class="w-6 h-6 shrink-0"></i>
 
-			            </span>
+			                <span class="menu-text whitespace-nowrap">
+			                    خروج
+			                </span>
 
-			        </a>
+			            </button>
+
+			        </form>
 
 			    </div>
 

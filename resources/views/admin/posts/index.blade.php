@@ -17,7 +17,7 @@
 
                     <nav class="flex items-center gap-2 text-sm text-gray-500 mb-3">
 
-                        <a href="#" class="hover:text-[#0f4c3a] transition">
+                        <a href="{{ route('admin.dashboard') }}" class="hover:text-[#0f4c3a] transition">
                             داشبورد
                         </a>
 
@@ -59,8 +59,8 @@
 
                 <div>
 
-                    <a href="#"
-                        class="inline-flex items-center gap-3 rounded-2xl bg-[#0f4c3a] hover:bg-[#0b3d2f] text-white px-6 py-4 font-semibold transition shadow-md hover:shadow-lg">
+                    <a href="{{ route('admin.posts.create') }}"
+                        class="inline-flex items-center gap-3 rounded-2xl bg-[#0f4c3a] hover:bg-[#0b3d2f] text-white px-6 py-4 font-semibold transition shadow-md hover:shadow-lg sharif-bold">
 
                         <i data-lucide="plus" class="w-5 h-5"></i>
 
@@ -248,7 +248,7 @@
                                     <i data-lucide="calendar-days" class="w-4 h-4"></i>
 
                                     <span>
-                                        {{ optional($post->published_at)->format('Y/m/d') ?? '---' }}
+                                        {{ jalali($post->published_at, '%Y/%m/%d') }}
                                     </span>
 
                                 </div>

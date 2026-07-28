@@ -10,7 +10,8 @@
         "intervention/image": "^4.2",
         "intervention/image-laravel": "^4.1",
         "laravel/framework": "^13.8",
-        "laravel/tinker": "^3.0"
+        "laravel/tinker": "^3.0",
+        "morilog/jalali": "^3.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -28,7 +29,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Helpers/DateHelper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

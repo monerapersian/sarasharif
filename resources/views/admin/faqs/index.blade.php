@@ -16,7 +16,7 @@
 
                     <nav class="flex items-center gap-2 text-sm text-gray-500 mb-3">
 
-                        <a href="#" class="hover:text-[#0f4c3a] transition">
+                        <a href="{{ route('admin.dashboard') }}" class="hover:text-[#0f4c3a] transition">
                             داشبورد
                         </a>
 
@@ -59,7 +59,7 @@
                 <div>
 
                     <a href="{{ route('admin.faqs.create') }}"
-                        class="inline-flex items-center gap-3 rounded-2xl bg-[#0f4c3a] hover:bg-[#0b3d2f] text-white px-6 py-4 font-semibold transition shadow-md hover:shadow-lg">
+                        class="inline-flex items-center gap-3 rounded-2xl bg-[#0f4c3a] hover:bg-[#0b3d2f] text-white px-6 py-4 font-semibold transition shadow-md hover:shadow-lg sharif-bold">
 
                         <i data-lucide="plus" class="w-5 h-5"></i>
 
@@ -265,7 +265,7 @@
 
                                     <span>
 
-                                        {{ $faq->published_at?->format('d F Y') ?? $faq->created_at->format('d F Y') }}
+                                        {{ jalali($faq->published_at ?? $faq->created_at, '%d %B %Y') }}
 
                                     </span>
 

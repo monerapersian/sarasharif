@@ -15,7 +15,7 @@
 
                     <nav class="flex items-center gap-2 text-sm text-gray-500 mb-3">
 
-                        <a href="#"
+                        <a href="{{ route('admin.dashboard') }}"
                            class="hover:text-[#0f4c3a] transition">
 
                             داشبورد
@@ -24,7 +24,7 @@
 
                         <i data-lucide="chevron-left" class="w-4 h-4"></i>
 
-                        <a href="#"
+                        <a href="{{ route('admin.faqs.index') }}"
                            class="hover:text-[#0f4c3a] transition">
 
                             سوالات
@@ -71,7 +71,7 @@
 
                 <div>
 
-                    <a href="#"
+                    <a href="{{ route('admin.faqs.index') }}"
                        class="inline-flex items-center gap-3 px-6 py-4 rounded-2xl border border-[#ebc9a270] bg-white text-[#0f4c3a] hover:bg-[#FAF8F4] transition shadow-sm">
 
                         <i data-lucide="arrow-right"></i>

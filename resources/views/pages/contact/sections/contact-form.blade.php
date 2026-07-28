@@ -249,7 +249,7 @@
 	                            <textarea
 	                                name="message"
 	                                rows="7"
-	                                class="ss-input resize-none py-2 h-20"
+	                                class="ss-input resize-none py-2 h-32"
 	                                placeholder="پیام خود را وارد کنید">{{ old('message') }}</textarea>
 
 	                            @error('message')
