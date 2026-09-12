@@ -198,7 +198,7 @@
 				function collapseSidebar(){
 
 				    sidebar.classList.remove("w-72");
-				    sidebar.classList.add("w-24");
+				    sidebar.classList.add("w-20");
 
 				    menuTexts.forEach(el => el.classList.add("hidden"));
 				    menuBadges.forEach(el => el.classList.add("hidden"));
@@ -215,7 +215,7 @@
 
 				function expandSidebar(){
 
-				    sidebar.classList.remove("w-24");
+				    sidebar.classList.remove("w-20");
 				    sidebar.classList.add("w-72");
 
 				    menuTexts.forEach(el => el.classList.remove("hidden"));
@@ -238,13 +238,13 @@
 				        collapseSidebar();
 
 				        main.classList.remove("mr-72");
-				        main.classList.add("mr-24");
+				        main.classList.add("mr-20");
 
 				    }else{
 
 				        expandSidebar();
 
-				        main.classList.remove("mr-24");
+				        main.classList.remove("mr-20");
 				        main.classList.add("mr-72");
 
 				    }
@@ -274,7 +274,7 @@
 				    // Mobile
 				    if(window.innerWidth < 1024){
 
-				        if(sidebar.classList.contains("w-24")){
+				        if(sidebar.classList.contains("w-20")){
 
 				            expandSidebar();
 
@@ -294,13 +294,13 @@
 				        collapseSidebar();
 
 				        main.classList.remove("mr-72");
-				        main.classList.add("mr-24");
+				        main.classList.add("mr-20");
 
 				    }else{
 
 				        expandSidebar();
 
-				        main.classList.remove("mr-24");
+				        main.classList.remove("mr-20");
 				        main.classList.add("mr-72");
 
 				    }

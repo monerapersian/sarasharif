@@ -33,7 +33,7 @@
 
                     <div class="flex items-center gap-3">
 
-                        <h1 class="text-4xl font-black text-[#0f4c3a]">
+                        <h1 class="text-3xl font-black text-[#0f4c3a]">
 
                             مقالات
 

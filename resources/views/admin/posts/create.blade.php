@@ -4,7 +4,7 @@
 
 @section('content')
 	<!-- PageHeader -->
-		<section class="px-8 pt-8 pb-6">
+		<section class="px-5 pt-8 pb-6">
 
 		    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
 
@@ -93,7 +93,7 @@
 	<!-- ./PageHeader -->
 
 	<!-- ArticleForm -->
-		<section class="px-8 pb-8">
+		<section class="px-5 pb-8">
 
 		    <div class="bg-white rounded-3xl border border-[#ebc9a270] shadow-sm p-8 space-y-8">
 

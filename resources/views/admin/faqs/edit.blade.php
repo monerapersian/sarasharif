@@ -3,7 +3,7 @@
 
 @section('content')
     <!-- PageHeader -->
-        <section class="px-8 pt-8 pb-6">
+        <section class="px-5 pt-8 pb-6">
 
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
 
@@ -35,7 +35,7 @@
 
                         <span class="font-semibold text-[#0f4c3a]">
 
-                            افزودن سوال جدید
+                            ویرایش سوال
 
                         </span>
 
@@ -47,7 +47,7 @@
 
                         <h1 class="text-3xl font-black text-[#0f4c3a]">
 
-                            افزودن سوال جدید
+                            ویرایش سوال
 
                         </h1>
 
@@ -92,7 +92,7 @@
     <!-- ./PageHeader -->
 
     <!-- ArticleForm -->
-        <section class="px-8 pb-8">
+        <section class="px-5 pb-8">
             <form action="{{ route('admin.faqs.update', $faq->id) }}" method="POST">
 
             @csrf
