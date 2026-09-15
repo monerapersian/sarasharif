@@ -470,6 +470,26 @@
 		                                    </tr>
 
 		                                    <tr class="bg-slate-50">
+											    <td class="px-6 py-4 font-medium">
+											        حق مسکن
+											    </td>
+											    <td id="housingValue"
+											        class="px-6 py-4 text-left font-bold">
+											        0
+											    </td>
+											</tr>
+
+											<tr class="bg-white">
+											    <td class="px-6 py-4 font-medium">
+											        مزایای رفاهی و انگیزه‌ای (بن کارگری)
+											    </td>
+											    <td id="bonValue"
+											        class="px-6 py-4 text-left font-bold">
+											        0
+											    </td>
+											</tr>
+
+		                                    <tr class="bg-slate-50">
 		                                        <td class="px-6 py-4 font-medium">
 		                                            پایه سنوات
 		                                        </td>
@@ -682,20 +702,25 @@
 	        const SALARY_1405 = {
 
 	            // حداقل دستمزد روزانه
-	            minimumDailyWage: 5541850,
+			    minimumDailyWage: 5541850,
 
-	            // حق تأهل ماهانه
-	            marriageAllowance: 5000000,
+			    // حق مسکن (۳ میلیون تومان)
+			    housingAllowance: 30000000,
 
-	            // حق اولاد برای هر فرزند
-	            // 3 × حداقل مزد روزانه
-	            childAllowance: 16625550,
+			    // مزایای رفاهی و انگیزه‌ای (بن کارگری)
+			    welfareAllowance: 22000000,
 
-	            // بیمه سهم کارگر
-	            insuranceRate: 0.07,
+			    // حق تأهل ماهانه
+			    marriageAllowance: 5000000,
 
-	            // سقف معافیت مالیاتی ماهانه
-	            taxExemption: 400000000,
+			    // حق اولاد هر فرزند
+			    childAllowance: 16625550,
+
+			    // بیمه سهم کارگر
+			    insuranceRate: 0.07,
+
+			    // سقف معافیت مالیاتی ماهانه
+			    taxExemption: 400000000,
 
 	            /*
 	            |--------------------------------------------------------------------------
@@ -1104,39 +1129,26 @@
 
 
 	                /*
-	                |--------------------------------------------------------------------------
-	                | حق تأهل و اولاد
-	                |--------------------------------------------------------------------------
-	                */
+					|--------------------------------------------------------------------------
+					| حق مسکن، بن، تأهل و اولاد
+					|--------------------------------------------------------------------------
+					*/
 
-	                let marriageAllowance = 0;
+					const housingAllowance = SALARY_1405.housingAllowance;
+					const welfareAllowance = SALARY_1405.welfareAllowance;
 
-	                let childrenAllowance = 0;
+					let marriageAllowance = 0;
+					let childrenAllowance = 0;
 
+					if (calculateFamilyInput?.checked) {
 
-	                if (calculateFamilyInput?.checked) {
+					    if (maritalStatus === 'متاهل') {
+					        marriageAllowance = SALARY_1405.marriageAllowance;
+					    }
 
-	                    /*
-	                    | حق تأهل
-	                    */
-
-	                    if (maritalStatus === 'متاهل') {
-
-	                        marriageAllowance =
-	                            SALARY_1405.marriageAllowance;
-
-	                    }
-
-
-	                    /*
-	                    | حق اولاد
-	                    */
-
-	                    childrenAllowance =
-	                        childrenCount *
-	                        SALARY_1405.childAllowance;
-
-	                }
+					    childrenAllowance =
+					        childrenCount * SALARY_1405.childAllowance;
+					}
 
 
 	                /*
@@ -1261,10 +1273,12 @@
 	                */
 
 	                const grossSalary =
-	                    baseSalary +
-	                    marriageAllowance +
-	                    childrenAllowance +
-	                    seniority;
+					    baseSalary +
+					    housingAllowance +
+					    welfareAllowance +
+					    marriageAllowance +
+					    childrenAllowance +
+					    seniority;
 
 
 	                /*
@@ -1396,49 +1410,45 @@
 
 
 	                /*
-	                |--------------------------------------------------------------------------
-	                | درآمدها
-	                |--------------------------------------------------------------------------
-	                */
+					|--------------------------------------------------------------------------
+					| درآمدها
+					|--------------------------------------------------------------------------
+					*/
 
-	                if (grossSalaryValue) {
+					if (grossSalaryValue) {
+					    grossSalaryValue.textContent =
+					        formatToman(baseSalary);
+					}
 
-	                    grossSalaryValue.textContent =
-	                        formatToman(baseSalary);
+					if (housingValue) {
+					    housingValue.textContent =
+					        formatToman(housingAllowance);
+					}
 
-	                }
+					if (bonValue) {
+					    bonValue.textContent =
+					        formatToman(welfareAllowance);
+					}
 
+					if (spouseValue) {
+					    spouseValue.textContent =
+					        formatToman(marriageAllowance);
+					}
 
-	                if (spouseValue) {
+					if (childrenValue) {
+					    childrenValue.textContent =
+					        formatToman(childrenAllowance);
+					}
 
-	                    spouseValue.textContent =
-	                        formatToman(marriageAllowance);
+					if (seniorityValue) {
+					    seniorityValue.textContent =
+					        formatToman(seniority);
+					}
 
-	                }
-
-
-	                if (childrenValue) {
-
-	                    childrenValue.textContent =
-	                        formatToman(childrenAllowance);
-
-	                }
-
-
-	                if (seniorityValue) {
-
-	                    seniorityValue.textContent =
-	                        formatToman(seniority);
-
-	                }
-
-
-	                if (totalIncome) {
-
-	                    totalIncome.textContent =
-	                        formatToman(grossSalary);
-
-	                }
+					if (totalIncome) {
+					    totalIncome.textContent =
+					        formatToman(grossSalary);
+					}
 
 
 	                /*
