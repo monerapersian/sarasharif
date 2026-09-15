@@ -1303,8 +1303,6 @@
 
 					const taxableSalary = Math.max(0, grossSalary);
 
-					const tax = calculateTax(taxableSalary);
-
 
 	                /*
 	                |--------------------------------------------------------------------------
@@ -1312,8 +1310,7 @@
 	                |--------------------------------------------------------------------------
 	                */
 
-	                const tax =
-	                    calculateTax(taxableSalary);
+	                const tax = calculateTax(taxableSalary);
 
 
 	                /*
