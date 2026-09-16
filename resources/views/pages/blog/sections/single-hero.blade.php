@@ -43,13 +43,19 @@
 
 	                </span>
 
-	                <span class="flex items-center gap-2">
+	                @php
+					    $plainContent = trim(strip_tags($post->content));
+					    preg_match_all('/[\p{L}\p{N}]+/u', $plainContent, $matches);
 
-	                    <i data-lucide="clock-3" class="w-5 h-5"></i>
+					    $wordCount = count($matches[0]);
+					    $readingTime = max(1, ceil($wordCount / 220));
+					@endphp
 
-	                    ۷ دقیقه مطالعه
+					<span class="flex items-center gap-2">
+					    <i data-lucide="clock-3" class="w-5 h-5"></i>
 
-	                </span>
+					    {{ $readingTime }} دقیقه مطالعه
+					</span>
 
 	                <span class="flex items-center gap-2">
 

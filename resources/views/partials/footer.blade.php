@@ -45,7 +45,7 @@
                         </li>
 
                         <li>
-                            <a href="/blogs"
+                            <a href="/blog"
                                class="text-[#ebc9a2] hover:text-white transition">
                                 مقالات
                             </a>
@@ -72,6 +72,13 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a href="/faq"
+                               class="text-[#ebc9a2] hover:text-white transition">
+                                سوالات متداول
+                            </a>
+                        </li>
+
                     </ul>
 
                 </div>
@@ -85,7 +92,7 @@
 
                     <ul class="space-y-5">
 
-                        <li class="flex items-center gap-3">
+                        <!-- <li class="flex items-center gap-3">
 
                             <i data-lucide="phone" class="w-5 h-5 text-[#a67c52]"></i>
 
@@ -93,7 +100,7 @@
                                 0912 123 4567
                             </span>
 
-                        </li>
+                        </li> -->
 
                         <li class="flex items-center gap-3">
 

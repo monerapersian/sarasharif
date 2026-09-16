@@ -77,10 +77,18 @@
 				                <!-- Meta -->
 				                <div class="flex justify-between text-sm text-gray-500 mb-5">
 
-				                    <span class="flex items-center gap-2">
-				                        <i data-lucide="clock-3" class="w-4 h-4"></i>
-				                        ۷ دقیقه
-				                    </span>
+				                    @php
+									    $plainContent = trim(strip_tags($post->content));
+									    preg_match_all('/[\p{L}\p{N}]+/u', $plainContent, $matches);
+
+									    $wordCount = count($matches[0]);
+									    $readingTime = max(1, ceil($wordCount / 220));
+									@endphp
+
+									<span class="flex items-center gap-2">
+									    <i data-lucide="clock-3" class="w-4 h-4"></i>
+									    {{ $readingTime }} دقیقه
+									</span>
 
 				                    <span class="flex items-center gap-2">
 				                        <i data-lucide="calendar-days" class="w-4 h-4"></i>

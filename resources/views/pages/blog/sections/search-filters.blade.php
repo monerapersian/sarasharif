@@ -1,5 +1,9 @@
 <!-- Search & Filters -->
 	<section id="articles" class="py-14 bg-white border-y border-[#ebc9a270]">
+		<!-- Pattern -->
+            <div class="absolute inset-0 opacity-5"
+                 style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size:24px 24px;">
+            </div>
 
 	    <div class="container mx-auto px-6">
 

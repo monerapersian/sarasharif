@@ -35,7 +35,7 @@
 	                       prose-img:rounded-2xl
 	                       prose-img:shadow-lg">
 
-	                {!! $post->content !!}
+	                {!! nl2br(e($post->content)) !!}
 
 	            </div>
 
