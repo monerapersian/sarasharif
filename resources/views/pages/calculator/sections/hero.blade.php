@@ -70,7 +70,7 @@
 
 		                    <div class="relative w-56 h-56 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-2xl">
 
-					            <i class="w-46 h-46 text-[#d8b48a]" data-lucide="calculator"></i>
+					            <i class="w-40 h-40 text-[#d8b48a]" data-lucide="calculator"></i>
 
 		                    </div>
 
