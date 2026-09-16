@@ -1100,7 +1100,7 @@
 	                */
 
 	                let dailySalary =
-	                    parseInt(dailySalaryInput?.value || 0);
+	                    getNumericValue(dailySalaryInput?.value || '');
 
 	                const startMonth =
 	                    startMonthInput?.value || 'فروردین';
