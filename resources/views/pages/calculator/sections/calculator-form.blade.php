@@ -353,7 +353,7 @@
 		                                <i data-lucide="calendar-check-2" class="w-5 h-5 text-[#a67c52]"></i>
 
 		                                <span id="slipDate" class="font-bold text-slate-700 text-lg">
-		                                    1405/06/01
+		                                    
 		                                </span>
 
 		                            </div>
@@ -1019,6 +1019,32 @@
 
 	        const calculateSalaryBtn =
 	            document.getElementById('calculateSalaryBtn');
+
+
+	        const slipDate =
+	        	document.getElementById('slipDate');
+
+	       	/*
+			|--------------------------------------------------------------------------
+			| تاریخ صدور فیش (تاریخ امروز)
+			|--------------------------------------------------------------------------
+			*/
+
+			if (slipDate) {
+
+			    const today = new Date();
+
+			    const issueDate = new Intl.DateTimeFormat(
+			        'fa-IR-u-ca-persian',
+			        {
+			            year: 'numeric',
+			            month: '2-digit',
+			            day: '2-digit'
+			        }
+			    ).format(today);
+
+			    slipDate.textContent = issueDate;
+			}
 
 
 	        /*
