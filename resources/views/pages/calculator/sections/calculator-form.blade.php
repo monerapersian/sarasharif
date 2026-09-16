@@ -172,13 +172,14 @@
 
 		                            <label class="mb-3 flex items-center gap-2 font-semibold text-slate-700">
 		                                <i data-lucide="banknote-check" class="w-8 h-8 text-[#d8c2a7]"></i>
-		                                پایه حقوق روزانه
+		                                پایه حقوق روزانه (ریال)
 		                            </label>
 
 		                            <input
 		                                id="dailySalary"
-		                                type="number"
-		                                value="5541850"
+		                                type="text"
+		                                inputmode="numeric"
+		                                value="5,541,850"
 		                                min="5541850"
 		                                class="w-full rounded-2xl border border-slate-300 px-5 py-3 focus:border-[#0f4c3a] focus:ring-4 focus:ring-[#0f4c3a]/10 outline-none transition">
 
@@ -954,6 +955,46 @@
 
 	        const dailySalaryInput =
 	            document.getElementById('dailySalary');
+
+	        /*
+			|--------------------------------------------------------------------------
+			| فرمت سه‌رقم سه‌رقم برای پایه حقوق روزانه
+			|--------------------------------------------------------------------------
+			*/
+
+			function formatInputNumber(value) {
+			    value = value.replace(/\D/g, '');
+			    return value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+			}
+
+			function getNumericValue(value) {
+			    return parseInt(value.replace(/,/g, '')) || 0;
+			}
+
+			if (dailySalaryInput) {
+
+			    // مقدار اولیه
+			    dailySalaryInput.value = formatInputNumber(dailySalaryInput.value);
+
+			    dailySalaryInput.addEventListener('input', function () {
+
+			        const cursor = this.selectionStart;
+
+			        const oldLength = this.value.length;
+
+			        this.value = formatInputNumber(this.value);
+
+			        const newLength = this.value.length;
+
+			        // حفظ مکان نشانگر هنگام تایپ
+			        this.setSelectionRange(
+			            cursor + (newLength - oldLength),
+			            cursor + (newLength - oldLength)
+			        );
+
+			    });
+
+			}
 
 	        const startMonthInput =
 	            document.getElementById('startMonth');
